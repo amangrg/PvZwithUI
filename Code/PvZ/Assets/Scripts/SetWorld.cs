@@ -1,0 +1,51 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SetWorld : MonoBehaviour
+{
+
+
+    private int lawn_height = 5;
+    private int lawn_width = 9;
+
+    public GameObject lawn_tile;
+    [HideInInspector]
+
+    public Vector2[] lanePositions;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        lanePositions = new Vector2[5];
+        generateLawn();
+    }
+
+
+    void Update()
+    {
+
+    }
+
+    private void invisibleWall()
+    {
+
+    }
+
+    private void generateLawn()
+    {
+        for (int i = 0; i < lawn_height; i++)
+        {
+            for (int j = 0; j < lawn_width; j++)
+            {
+                GameObject tile = Instantiate(lawn_tile, new Vector2(-5f + (float)j, 2.9f - 1.6f * (float)i),
+                Quaternion.identity, transform);
+
+                if (j == 0)
+                {
+                    lanePositions[i] = new Vector2(tile.transform.position.x + 11f, tile.transform.position.y + 0.2f);
+                }
+            }
+        }
+    }
+}
