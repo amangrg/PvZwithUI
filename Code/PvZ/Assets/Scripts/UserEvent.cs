@@ -52,6 +52,11 @@ public class UserEvent : MonoBehaviour
                 hit.transform.gameObject.GetComponent<Tile>().plant(Plants[plantid]);
                 plantid = -1;
             }
+            else if (hit.transform.gameObject.tag == "sun")
+            {
+                //gm.GetComponent<"GameManager">()
+                Destroy(hit.transform.gameObject);
+            }
           }
     }
 
