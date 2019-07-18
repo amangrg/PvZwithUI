@@ -7,7 +7,7 @@ public class UserEvent : MonoBehaviour
 {
     int plantid = -1;
     //private int SunCost = 25;
-    private bool seedClicked = false;
+    //private bool seedClicked = false;
   //  public GameObject plantTemp;
     public GameObject gm;
     public GameObject[] Plants;
@@ -35,7 +35,7 @@ public class UserEvent : MonoBehaviour
     public void onButtonClick(int id)
     {
         plantid = id;
-        seedClicked = true;
+        //seedClicked = true;
     }
 
     //Modularise this function

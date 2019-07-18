@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
     {
         if (!has_plant)
         {
-            GameObject plant = (GameObject)Instantiate(p, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            GameObject plant = (GameObject)Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.7f, 0), Quaternion.identity);
             has_plant = true;
         }
     }

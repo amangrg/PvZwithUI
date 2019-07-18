@@ -38,12 +38,12 @@ public class SetWorld : MonoBehaviour
         {
             for (int j = 0; j < lawn_width; j++)
             {
-                GameObject tile = Instantiate(lawn_tile, new Vector2(-5f + (float)j, 2.9f - 1.6f * (float)i),
+                GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f + 1.58f * (float)j, 3f - 1.76f * (float)i),
                 Quaternion.identity, transform);
 
                 if (j == 0)
                 {
-                    lanePositions[i] = new Vector2(tile.transform.position.x + 11f, tile.transform.position.y + 0.2f);
+                    lanePositions[i] = new Vector2(tile.transform.position.x + 16f, tile.transform.position.y + 0.3f);
                 }
             }
         }
