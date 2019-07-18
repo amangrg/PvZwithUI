@@ -12,15 +12,17 @@ public class UserEvent : MonoBehaviour
     public GameObject gm;
     public GameObject[] Plants;
     public Button[] button;
- //   public Sprite[] plantSprites;
+    //public Sprite[] plantSprites;
+    public GameObject canvas;
 
+    //set button interactable false initially and set button ids
     void Start()
     {
         for (int i = 0; i < button.Length; i++)
         {
             int index = i;
             button[index].GetComponent<Button>().onClick.AddListener(() => onButtonClick(index));
-
+            button[index].interactable = false;
         }
     }
 
@@ -40,6 +42,7 @@ public class UserEvent : MonoBehaviour
 
     //Modularise this function
 
+    //update sunCost when a plant is placed accordingly and set button interactable to false
     private void mouseClicked()
     {
         Ray ray;
@@ -49,8 +52,13 @@ public class UserEvent : MonoBehaviour
         {
             if (plantid > -1 && hit.transform.gameObject.tag == "tile")
             {
-                hit.transform.gameObject.GetComponent<Tile>().plant(Plants[plantid]);
-                plantid = -1;
+                if (hit.transform.gameObject.GetComponent<Tile>().plant(Plants[plantid]))
+                {
+                    gm.GetComponent<GameManager>().updateSun(-canvas.GetComponent<canvas>().plantCosts[plantid]);
+                    button[plantid].interactable = false;
+                    plantid = -1;
+                    //seedClicked = false;
+                }
             }
             else if (hit.transform.gameObject.tag == "sun")
             {

@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1195881279}
+  userEvent: {fileID: 1749176547}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SuncountT: {fileID: 1104467360}
+  userEvent: {fileID: 1749176547}
+  plantCosts: 3200000064000000
 --- !u!1 &1231519874
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +731,7 @@ MonoBehaviour:
   button:
   - {fileID: 1823437394}
   - {fileID: 2014543219}
+  canvas: {fileID: 1195881279}
 --- !u!1 &1823437392
 GameObject:
   m_ObjectHideFlags: 0

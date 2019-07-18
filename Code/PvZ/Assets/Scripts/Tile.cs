@@ -19,12 +19,15 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void plant(GameObject p)
+    //plant function will instantiate plant if there is no plant on that tile
+    public bool plant(GameObject p)
     {
         if (!has_plant)
         {
             GameObject plant = (GameObject)Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.2f, 0), Quaternion.identity);
             has_plant = true;
+            return true;
         }
+        return false;
     }
 }
