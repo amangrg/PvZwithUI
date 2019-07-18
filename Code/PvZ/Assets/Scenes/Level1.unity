@@ -691,8 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 331634691}
   Plants:
-  - {fileID: 8996940981071930953, guid: ccec576380d8f5d428b5844842ef1a67, type: 3}
-  - {fileID: 2305063183734783012, guid: 7e9ba0ca3c30f40489e3c5a420c24f52, type: 3}
+  - {fileID: 2608579983526697873, guid: bf26f3869714a8f4fa24078ed301c470, type: 3}
+  - {fileID: 8342748787736430995, guid: b71a6234bff0f5f48ac1ae825bad36c1, type: 3}
   button:
   - {fileID: 1823437394}
   - {fileID: 2014543219}
@@ -889,7 +889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947983607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.127, y: 0.018, z: 0}
   m_LocalScale: {x: 0.9294781, y: 0.9258472, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

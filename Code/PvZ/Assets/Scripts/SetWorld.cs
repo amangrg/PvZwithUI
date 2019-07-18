@@ -38,7 +38,7 @@ public class SetWorld : MonoBehaviour
         {
             for (int j = 0; j < lawn_width; j++)
             {
-                GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f + 1.58f * (float)j, 3f - 1.76f * (float)i),
+                GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f + 1.58f * (float)j, 3f - 1.68f * (float)i),
                 Quaternion.identity, transform);
 
                 if (j == 0)
