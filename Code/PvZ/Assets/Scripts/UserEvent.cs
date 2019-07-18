@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UserEvent : MonoBehaviour
 {
     int plantid = -1;
-    //private int SunCost = 25;
+    private int SunCost = 25;
     //private bool seedClicked = false;
   //  public GameObject plantTemp;
     public GameObject gm;
@@ -54,7 +54,7 @@ public class UserEvent : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "sun")
             {
-                //gm.GetComponent<"GameManager">()
+               gm.GetComponent<GameManager>().updateSun(SunCost);
                 Destroy(hit.transform.gameObject);
             }
           }
