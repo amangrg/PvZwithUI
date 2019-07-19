@@ -8,7 +8,7 @@ public class Sun : MonoBehaviour
     private float timer;
     private float lifetime = 11f;
     [HideInInspector]
-    public bool sunflowerSun = false;
+    public bool sunflowerSun;
     // Start is called before the first frame update
     void Start()
     {
