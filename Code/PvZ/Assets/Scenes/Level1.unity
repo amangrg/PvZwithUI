@@ -368,6 +368,7 @@ MonoBehaviour:
   lawn_tile: {fileID: 6615060874783168378, guid: 56ce55755f7edac4cb3b30b8df5afed8,
     type: 3}
   lanePositions: []
+  game_over_line: 0
 --- !u!1 &1104467358
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +568,8 @@ MonoBehaviour:
   SuncountT: {fileID: 1104467360}
   userEvent: {fileID: 1749176547}
   plantCosts: 3200000064000000
+  GameOver: 0
+  GameWon: 0
 --- !u!1 &1231519874
 GameObject:
   m_ObjectHideFlags: 0

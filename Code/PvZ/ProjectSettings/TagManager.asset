@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tile
   - sun
+  - peaBullet
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RegularZombie : Zombie
 {
+    private float TimeInterval = 1f;
+    private float timer = 0f;
+    private bool walk = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +23,7 @@ public class RegularZombie : Zombie
 
     private void updateHealth()
     {
-       
+        health--;
     }
 
     protected override void zombieEat()
@@ -41,6 +44,15 @@ public class RegularZombie : Zombie
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject.tag == "peaBullet")
+        {
+            updateHealth();
+            Destroy(other.gameObject);
+        }
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
