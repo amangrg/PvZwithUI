@@ -31,7 +31,7 @@ public class Sunflower : Plant
         Quaternion.identity,
         transform
         );
-        sun.transform.localScale = new Vector3(1f, 1f, 1f);
+        sun.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
         sun.GetComponent<Sun>().sunflowerSun = true;
     }
 }
