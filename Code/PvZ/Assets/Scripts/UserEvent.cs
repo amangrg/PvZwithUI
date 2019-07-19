@@ -7,12 +7,12 @@ public class UserEvent : MonoBehaviour
 {
     int plantid = -1;
     private int SunCost = 25;
-    //private bool seedClicked = false;
-  //  public GameObject plantTemp;
+    private bool seedClicked = false;
+    public GameObject plantTemp;
     public GameObject gm;
     public GameObject[] Plants;
     public Button[] button;
-    //public Sprite[] plantSprites;
+    public Sprite[] plantSprites;
     public GameObject canvas;
 
     //set button interactable false initially and set button ids
@@ -33,11 +33,21 @@ public class UserEvent : MonoBehaviour
             mouseClicked();
 
         }
+        if (seedClicked)
+        {
+            plantSpriteMng();
+            drag();
+        }
+        if (seedClicked)
+        {
+            plantSpriteMng();
+            drag();
+        }
     }
     public void onButtonClick(int id)
     {
         plantid = id;
-        //seedClicked = true;
+        seedClicked = true;
     }
 
     //Modularise this function
@@ -64,7 +74,8 @@ public class UserEvent : MonoBehaviour
                     Sprite img = canvas.GetComponent<canvas>().panelChargeButtonImage[plantid];
                     button[plantid].GetComponent<Image>().sprite = img;
                     plantid = -1;
-                    //seedClicked = false;
+                    seedClicked = false;
+                    plantSpriteMng();
                 }
             }
             if (hit.transform.gameObject.tag == "sun")
@@ -73,6 +84,47 @@ public class UserEvent : MonoBehaviour
                 Destroy(hit.transform.gameObject);
             }
           }
+    }
+
+    private void drag()
+    {
+        /*Ray ray;
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.gameObject.tag == "tile")
+            {
+                Debug.Log("Ray hit tile");
+                plantTemp.transform.position = new Vector3(
+                hit.transform.position.x,
+                hit.transform.position.y + 0.2f,
+                0
+                );
+            }
+        }
+        else */               //For Snapping on the tiles or to make it free
+        {
+            plantTemp.transform.position = new Vector3(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).y + 0.2f,
+            0
+            );
+        }
+    }
+
+    private void plantSpriteMng()
+    {
+        if (plantid > -1)
+        {
+            plantTemp.GetComponent<SpriteRenderer>().enabled = true;
+            plantTemp.GetComponent<SpriteRenderer>().sprite = plantSprites[plantid];
+        }
+        else
+        {
+            plantTemp.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
     }
 
 }
