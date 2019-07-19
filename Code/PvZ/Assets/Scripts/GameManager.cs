@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject userEvent;
-    private int TotalSun = 500;
+    private int TotalSun = 0;
     void Start()
     {
 

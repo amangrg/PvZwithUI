@@ -42,7 +42,11 @@ public class UserEvent : MonoBehaviour
 
     //Modularise this function
 
-    //update sunCost when a plant is placed accordingly and set button interactable to false
+    /*
+    update sunCost when a plant is placed accordingly and set button interactable to false
+    When a plant is planted on tile then set that buttonCoolTime to true and 
+    change the image on the panel to recharging image and set button interactable to false
+    */
     private void mouseClicked()
     {
         Ray ray;
@@ -54,8 +58,11 @@ public class UserEvent : MonoBehaviour
             {
                 if (hit.transform.gameObject.GetComponent<Tile>().plant(Plants[plantid]))
                 {
+                    canvas.GetComponent<canvas>().checkButtonCoolTime[plantid] = true;
                     gm.GetComponent<GameManager>().updateSun(-canvas.GetComponent<canvas>().plantCosts[plantid]);
                     button[plantid].interactable = false;
+                    Sprite img = canvas.GetComponent<canvas>().panelChargeButtonImage[plantid];
+                    button[plantid].GetComponent<Image>().sprite = img;
                     plantid = -1;
                     //seedClicked = false;
                 }

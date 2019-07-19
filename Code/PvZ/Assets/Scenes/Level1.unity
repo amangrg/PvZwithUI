@@ -570,6 +570,17 @@ MonoBehaviour:
   plantCosts: 3200000064000000
   GameOver: 0
   GameWon: 0
+  UserEvent: {fileID: 1749176547}
+  checkButtonCoolTime: 0000
+  timeToWait:
+  - 7
+  - 7
+  panelChargeButtonImage:
+  - {fileID: 21300000, guid: 736ca6d61d2fa3f47b988d59808d8b50, type: 3}
+  - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
+  panelImage:
+  - {fileID: 21300000, guid: 02bf95415191c3a47b26b120de5a9378, type: 3}
+  - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
 --- !u!1 &1231519874
 GameObject:
   m_ObjectHideFlags: 0
