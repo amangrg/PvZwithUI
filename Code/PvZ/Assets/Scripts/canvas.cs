@@ -13,8 +13,8 @@ public class canvas : MonoBehaviour
 
     [HideInInspector]
     public bool GameOver = false;
-    //public static bool GamePaused = false;
-    //public GameObject PauseMenu;
+    public static bool GamePaused = false;
+    public GameObject PauseMenu;
     public GameObject GameOverUI;
     //public GameObject GameWonUI;
     //public GameObject HugeWaveUI;
@@ -37,7 +37,7 @@ public class canvas : MonoBehaviour
 
     void Start()
     {
-        //PauseMenu.SetActive(false);
+        PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
         //GameWonUI.SetActive(false);
 
@@ -53,7 +53,17 @@ public class canvas : MonoBehaviour
     void Update()
     {
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GamePaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Paused();
+            }
+        }
         if (GameOver)
         {
             Time.timeScale = 0f;
@@ -122,6 +132,21 @@ public class canvas : MonoBehaviour
                 userEvent.GetComponent<UserEvent>().button[i].interactable = false;
             }
         }
+    }
+
+    public void Paused()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        GamePaused = true;
+    }
+
+    public void Resume()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        GamePaused = false;
+
     }
 
     public void Quit()
