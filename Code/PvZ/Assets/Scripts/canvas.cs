@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class canvas : MonoBehaviour
 {
     public Text SuncountT;
     public GameObject userEvent;
     public int[] plantCosts;
+
+    [HideInInspector]
+    public bool GameOver = false;
+    public bool GameWon = false;
+    //public GameObject GameOverUI;
+    //public GameObject GameWonUI;
     // Start is called before the first frame update
     void Start()
     {
         updateSunCount(0);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkButtonActive(); //update when cooldown is added
+        checkButtonActive();
+        //update when cooldown is added
+      
     }
 
     public void checkButtonActive()

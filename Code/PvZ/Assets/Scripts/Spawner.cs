@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("spawnSun", 1f, 3f);
-        InvokeRepeating("spawnZombies", 15f, 2f);
+        InvokeRepeating("spawnZombies", 5f, 2f);
     }
 
     // Update is called once per frame

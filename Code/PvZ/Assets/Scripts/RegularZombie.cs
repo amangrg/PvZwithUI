@@ -31,6 +31,10 @@ public class RegularZombie : Zombie
     protected override void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
+        if (transform.position.x < GameObject.Find("SetWorld").GetComponent<SetWorld>().game_over_line)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().Game_Over();
+        }
     }
 
 

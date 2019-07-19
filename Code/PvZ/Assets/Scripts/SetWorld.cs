@@ -14,11 +14,15 @@ public class SetWorld : MonoBehaviour
 
     public Vector2[] lanePositions;
 
+    [HideInInspector]
+    public float game_over_line;
+
     // Start is called before the first frame update
     void Start()
     {
         lanePositions = new Vector2[5];
         generateLawn();
+        invisibleWall();
     }
 
 
@@ -29,7 +33,10 @@ public class SetWorld : MonoBehaviour
 
     private void invisibleWall()
     {
+        GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f, 3f),
+               Quaternion.identity, transform);
 
+        game_over_line = tile.transform.position.x - 1.5f;
     }
 
     private void generateLawn()
