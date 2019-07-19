@@ -36,7 +36,7 @@ public class SetWorld : MonoBehaviour
         GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f, 3f),
                Quaternion.identity, transform);
 
-        game_over_line = tile.transform.position.x - 1.5f;
+        game_over_line = tile.transform.position.x - 0.7f;
     }
 
     private void generateLawn()

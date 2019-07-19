@@ -11,7 +11,7 @@ public class RegularZombie : Zombie
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.5f;
+        speed = 0.3f;
         health = 5;
     }
 
