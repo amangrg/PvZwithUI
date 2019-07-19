@@ -34,7 +34,7 @@ public class Peashooter : Plant
 
     private bool checkPath()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 6f, 1 << 8);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 18f, 1 << 8);
         if (hit)
         {
             return hit;

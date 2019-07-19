@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sunflower : Plant
 {
-    private float TimeInterval = 7f;
+    private float TimeInterval = 4f;
     public GameObject Sun;
     private float timer;
 
