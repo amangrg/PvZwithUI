@@ -118,10 +118,17 @@ public class canvas : MonoBehaviour
             //Debug.Log(plantCosts[i]);
             //Debug.Log(System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text));
             //Debug.Log(plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text));
-            if ((!checkButtonCoolTime[i]) && (plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text)))
+            if ((!checkButtonCoolTime[i]))
             {
+                if ((plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text)))
+                {
+                    userEvent.GetComponent<UserEvent>().button[i].interactable = true;
+                }
+                else
+                {
+                    userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                }
                 //Debug.Log("but");
-                userEvent.GetComponent<UserEvent>().button[i].interactable = true;
                 checkButtonCoolTime[i] = false;
                 Button btn = userEvent.GetComponent<UserEvent>().button[i];
                 Sprite img = panelImage[i];
