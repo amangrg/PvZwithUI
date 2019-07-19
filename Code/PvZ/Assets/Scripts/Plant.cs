@@ -9,6 +9,10 @@ public class Plant : MonoBehaviour
     
     public void updateHealth()
     {
-
+        health--;
+        if(health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Peashooter : Plant
     // Start is called before the first frame update
     void Start()
     {
- 
+        health = 5;
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Peashooter : Plant
     {
 
         timer += Time.deltaTime;
-        if (timer >= TimeInterval)
+        if (timer >= TimeInterval && checkPath())
         {
             timer = 0f;
             shootPea();
@@ -30,5 +30,17 @@ public class Peashooter : Plant
     private void shootPea()
     {
         GameObject pea = (GameObject)Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
+    }
+
+    private bool checkPath()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 6f, 1 << 8);
+        if (hit)
+        {
+            return hit;
+        }
+        else
+            return false;
+
     }
 }

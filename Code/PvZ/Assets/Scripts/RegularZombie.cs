@@ -17,8 +17,17 @@ public class RegularZombie : Zombie
 
     // Update is called once per frame
     void Update()
-    {      
+    {
+        if (walk)
+        {
             zombieWalk();
+        }
+        if (checkPath())
+        {
+            walk = false;
+        }
+        else
+            walk = true;
     }
 
     private void updateHealth()
@@ -54,5 +63,25 @@ public class RegularZombie : Zombie
         {
             Destroy(gameObject);
         }
+    }
+
+    private bool checkPath()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);
+        if (hit)
+        {
+            //Debug.Log("In checkpath");
+            timer += Time.deltaTime;
+            if (timer >= TimeInterval)
+            {
+                timer = 0f;
+                hit.transform.gameObject.GetComponent<Plant>().updateHealth();
+            }
+            return hit;
+
+        }
+        else
+            return false;
+
     }
 }
