@@ -13,8 +13,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnSun", 1f, 3f);
-        InvokeRepeating("spawnZombies", 5f, 2f);
+        InvokeRepeating("spawnSun", 1f, 8f);
+        InvokeRepeating("spawnZombies", 5f, 15f);
     }
 
     // Update is called once per frame
