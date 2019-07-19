@@ -13,8 +13,11 @@ public class canvas : MonoBehaviour
 
     [HideInInspector]
     public bool GameOver = false;
-    public bool GameWon = false;
-    public GameObject UserEvent;
+    //public static bool GamePaused = false;
+    //public GameObject PauseMenu;
+    public GameObject GameOverUI;
+    //public GameObject GameWonUI;
+    //public GameObject HugeWaveUI;
     public bool[] checkButtonCoolTime = new bool[2];
     public float[] timeToWait = new float[2] { 7.0f, 7.0f };
     private float[] currentWaitTime = new float[2];
@@ -25,8 +28,19 @@ public class canvas : MonoBehaviour
     // Start is called before the first frame update
 
     //at start updateSunCount should be 0 and ButtonCoolTime of each button must be false
+
+    void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
+
     void Start()
     {
+        //PauseMenu.SetActive(false);
+        GameOverUI.SetActive(false);
+        //GameWonUI.SetActive(false);
+
         updateSunCount(0);
         for (int i = 0; i < 2; i++)
         {
@@ -34,10 +48,17 @@ public class canvas : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
+
+        if (GameOver)
+        {
+            Time.timeScale = 0f;
+            GameOverUI.SetActive(true);
+        }
 
     }
 
@@ -103,6 +124,22 @@ public class canvas : MonoBehaviour
         }
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
     public void updateSunCount(int SunCost)
     {
         SuncountT.text = SunCost.ToString();

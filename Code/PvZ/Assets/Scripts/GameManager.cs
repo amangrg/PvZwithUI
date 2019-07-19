@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        Debug.Log("lost");
+        canvas.GetComponent<canvas>().GameOver = true;
     }
 
     
