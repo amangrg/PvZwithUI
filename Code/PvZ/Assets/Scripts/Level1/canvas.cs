@@ -91,7 +91,7 @@ public class canvas : MonoBehaviour
         if (Level_Complete)
         {
             //Time.timeScale = 0f;
-            LevelCompleteUI.SetActive(true);
+            StartCoroutine(waiter());
         }
         if (GameQuitDialog)
         {
@@ -116,6 +116,13 @@ public class canvas : MonoBehaviour
         }
     }
 
+    IEnumerator waiter()
+    {
+        Debug.Log("wait for sec");
+        yield return new WaitForSeconds(5);
+        LevelCompleteUI.SetActive(true);
+
+    }
     /*
     checkCooldownTimer function will check if the checkButtonCoolTime of any button is true
     then increment the currentWaitTime of that button till timeToWait of that button and 
