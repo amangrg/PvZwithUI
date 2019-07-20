@@ -3455,7 +3455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273996607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3aa569dc1d9da944a5218b60878e46b, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d2539b96859dd4fa36cf106f4aac18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 2935345062824287308, guid: 3ed6194deef18e14a9bc9330d778e0ff, type: 3}
@@ -3463,6 +3463,8 @@ MonoBehaviour:
     type: 3}
   setWorld: {fileID: 1036435280}
   game_manager: {fileID: 331634691}
+  Armoured_Zombie: {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab,
+    type: 3}
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

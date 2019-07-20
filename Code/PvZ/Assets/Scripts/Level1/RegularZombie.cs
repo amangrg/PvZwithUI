@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegularZombie : Zombie
+public class RegularZombie : MonoBehaviour
 {
-    private float TimeInterval = 1f;
-    private float timer = 0f;
-    private bool walk = true;
+    protected float TimeInterval = 1f;
+    protected float timer = 0f;
+    protected bool walk = true;
     public GameObject Smoke;
+
     public bool frozen = false;
     private float freezeTimer = 0f;
+    protected float speed;
+    protected float health;
 
 
     // Start is called before the first frame update
@@ -52,17 +55,17 @@ public class RegularZombie : Zombie
             walk = true;
     }
 
-    private void updateHealth()
+    protected void updateHealth()
     {
         health--;
     }
 
-    protected override void zombieEat()
+    protected void zombieEat()
     {
 
     }
 
-    protected override void zombieWalk()
+    protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
         if (transform.position.x < GameObject.Find("SetWorld").GetComponent<SetWorld>().game_over_line)
@@ -73,7 +76,7 @@ public class RegularZombie : Zombie
 
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "peaBullet")
         {
@@ -100,7 +103,7 @@ public class RegularZombie : Zombie
         }
     }
 
-    private bool checkPath()
+    protected bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);
         if (hit)
