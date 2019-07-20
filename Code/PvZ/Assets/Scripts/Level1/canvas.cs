@@ -16,11 +16,13 @@ public class canvas : MonoBehaviour
     public bool Level_Complete = false;
     public static bool GamePaused = false;
     public bool GameQuitDialog = false;
+    public bool GameMenuDialog = false;
     public bool HugeWave = false;
     public GameObject PauseMenu;
     public GameObject GameOverUI;
     public GameObject LevelCompleteUI;
-    public GameObject GameQuitDiaglogBox;
+    public GameObject GameQuitDialogBox;
+    public GameObject GameMenuDialogBox;
     public GameObject HugeWaveUI;
     //public GameObject HugeWaveUI;
     public bool[] checkButtonCoolTime;
@@ -57,7 +59,8 @@ public class canvas : MonoBehaviour
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
         LevelCompleteUI.SetActive(false);
-        GameQuitDiaglogBox.SetActive(false);
+        GameQuitDialogBox.SetActive(false);
+        GameMenuDialogBox.SetActive(false);
         updateSunCount(0);
         for (int i = 0; i < plantCosts.Length; i++)
         {
@@ -94,9 +97,12 @@ public class canvas : MonoBehaviour
         }
         if (GameQuitDialog)
         {
-            GameQuitDiaglogBox.SetActive(true);
+            GameQuitDialogBox.SetActive(true);
         }
-
+        if (GameMenuDialog)
+        {
+            GameMenuDialogBox.SetActive(true);
+        }
         if (HugeWave)
         {
             HugeWaveUI.SetActive(HugeWave);
@@ -191,37 +197,68 @@ public class canvas : MonoBehaviour
     public void Resume()
     {
         GameQuitDialog = false;
-        GameQuitDiaglogBox.SetActive(false);
+        GameQuitDialogBox.SetActive(false);
+        GameMenuDialog = false;
+        GameMenuDialogBox.SetActive(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
 
     }
-
+    /*
+    Quit function will be invoked on clicking on Quit button and
+    it will open Quit dialog box for confirmation
+    */
     public void Quit()
     {
         GameQuitDialog = true;
     }
-
+    /*
+    Quit Confirm function will be invoked on dialog box confirmation and 
+    it will Quit application
+    */
     public void QuitConfirm()
     {
         Application.Quit();
     }
-
+    /*
+    Menu function will be invoked on clicking on Menu button and
+    it will open Menu dialog box for confirmation
+    */
     public void Menu()
+    {
+        GameMenuDialog = true;
+    }
+    /*
+    Menu Confirm function will be invoked on dialog box confirmation and 
+    it will load the Menu screen
+    */
+    public void MenuConfirm()
     {
         SceneManager.LoadScene(0);
     }
-
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
+
+    /*
+    level2Scene function will load the Level 2 Scene after successful 
+    completion of level 1
+    */
     public void level2Scene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    /*
+    level3Scene function will load the Level 3 Scene after successful
+    completion of level 2
+    */
+    public void level3Scene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void updateSunCount(int SunCost)
     {
