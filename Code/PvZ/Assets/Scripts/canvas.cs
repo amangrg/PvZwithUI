@@ -16,16 +16,19 @@ public class canvas : MonoBehaviour
     public bool Level1_Complete = false;
     public static bool GamePaused = false;
     public bool GameQuitDialog = false;
+    public bool HugeWave = false;
     public GameObject PauseMenu;
     public GameObject GameOverUI;
     public GameObject Level1CompleteUI;
     public GameObject GameQuitDiaglogBox;
+    public GameObject HugeWaveUI;
     //public GameObject HugeWaveUI;
     public bool[] checkButtonCoolTime = new bool[2];
     public float[] timeToWait = new float[2] { 7.0f, 7.0f };
     private float[] currentWaitTime = new float[2];
     public Sprite[] panelChargeButtonImage = new Sprite[2];
     public Sprite[] panelImage = new Sprite[2];
+    private float WaveTimer = 0f;
 
     public int CurrentLevel = 1;
     //public GameObject GameOverUI;
@@ -92,6 +95,20 @@ public class canvas : MonoBehaviour
         if (GameQuitDialog)
         {
             GameQuitDiaglogBox.SetActive(true);
+        }
+
+        if (HugeWave)
+        {
+            HugeWaveUI.SetActive(HugeWave);
+            if (WaveTimer < 2f)
+            {
+                WaveTimer += Time.deltaTime;
+            }
+            else
+            {
+                HugeWave = false;
+                HugeWaveUI.SetActive(HugeWave);
+            }
         }
     }
 

@@ -38,12 +38,39 @@ public class Spawner : MonoBehaviour
 
     private void spawnZombies()
     {
+        if (game_manager.GetComponent<GameManager>().Zombie_Count >= 6)
+        {
+            GameObject zombie = Instantiate(
+            Regular_Zombie,
+            setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(0, 5)],
+            Quaternion.identity,
+            transform
+            );
 
-        GameObject zombie = Instantiate(
-        Regular_Zombie,
-        setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(0, 5)],
-        Quaternion.identity,
-        transform
-        );
+            game_manager.GetComponent<GameManager>().Zombie_Count--;
+
+        }
+        if (game_manager.GetComponent<GameManager>().Kill_Count == 5)
+        {
+            game_manager.GetComponent<GameManager>().HugeWave(true);
+            spawnHorde();
+        }
+
+    }
+
+    private void spawnHorde()
+    {
+
+        while (game_manager.GetComponent<GameManager>().Zombie_Count > 0)
+        {
+            GameObject zombie = Instantiate(
+            Regular_Zombie,
+            setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(0, 5)],
+            Quaternion.identity,
+            transform
+            );
+            game_manager.GetComponent<GameManager>().Zombie_Count--;
+        }
+
     }
 }

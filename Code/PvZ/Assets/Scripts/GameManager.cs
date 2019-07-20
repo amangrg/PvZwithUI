@@ -41,5 +41,10 @@ public class GameManager : MonoBehaviour
         canvas.GetComponent<canvas>().Level1_Complete = true;
     }
 
+    public void HugeWave(bool wave)
+    {
+        Debug.Log(wave);
+        canvas.GetComponent<canvas>().HugeWave = wave;
+    }
 
 }
