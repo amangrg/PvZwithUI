@@ -3251,7 +3251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SuncountT: {fileID: 1104467360}
   userEvent: {fileID: 1749176547}
-  plantCosts: 3200000064000000
+  plantCosts: 32000000640000009600000032000000
   GameOver: 0
   Level1_Complete: 0
   GameQuitDialog: 0
@@ -3261,15 +3261,26 @@ MonoBehaviour:
   Level1CompleteUI: {fileID: 1380439938}
   GameQuitDiaglogBox: {fileID: 1972230629}
   HugeWaveUI: {fileID: 1536507811}
-  checkButtonCoolTime: 0000
+  checkButtonCoolTime: 00000000
   timeToWait:
   - 7
   - 7
+  - 7
+  - 7
+  currentWaitTime:
+  - 0
+  - 0
+  - 0
+  - 0
   panelChargeButtonImage:
   - {fileID: 21300000, guid: 736ca6d61d2fa3f47b988d59808d8b50, type: 3}
   - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
+  - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
+  - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
   panelImage:
   - {fileID: 21300000, guid: 02bf95415191c3a47b26b120de5a9378, type: 3}
+  - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
+  - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
   - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
   CurrentLevel: 1
   progressBar: {fileID: 808803694}
