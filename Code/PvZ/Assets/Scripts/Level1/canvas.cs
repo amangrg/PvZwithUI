@@ -88,7 +88,6 @@ public class canvas : MonoBehaviour
             Time.timeScale = 0f;
             GameOverUI.SetActive(true);
         }
-
         if (Level_Complete)
         {
             //Time.timeScale = 0f;
@@ -204,6 +203,7 @@ public class canvas : MonoBehaviour
         GamePaused = false;
 
     }
+
     /*
     Quit function will be invoked on clicking on Quit button and
     it will open Quit dialog box for confirmation
