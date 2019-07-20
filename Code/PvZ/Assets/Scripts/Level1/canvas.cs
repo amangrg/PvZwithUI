@@ -257,7 +257,7 @@ public class canvas : MonoBehaviour
     */
     public void level3Scene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
     public void updateSunCount(int SunCost)
     {
