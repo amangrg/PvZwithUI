@@ -24,8 +24,9 @@ public class canvas : MonoBehaviour
     private float[] currentWaitTime = new float[2];
     public Sprite[] panelChargeButtonImage = new Sprite[2];
     public Sprite[] panelImage = new Sprite[2];
-    //public GameObject GameOverUI;
-    //public GameObject GameWonUI;
+
+    public Slider progressBar;
+
     // Start is called before the first frame update
 
     //at start updateSunCount should be 0 and ButtonCoolTime of each button must be false
