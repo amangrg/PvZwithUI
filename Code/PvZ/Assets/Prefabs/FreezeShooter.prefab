@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6848453897760617884}
   - component: {fileID: 6848453897760617885}
   - component: {fileID: 516578242167676112}
+  - component: {fileID: 1784823628}
+  - component: {fileID: 1784823629}
   m_Layer: 9
   m_Name: FreezeShooter
   m_TagString: Untagged
@@ -106,3 +108,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.05, y: 4.44}
   m_EdgeRadius: 0
+--- !u!95 &1784823628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848453897760617886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b35cc9b2c29f0854d97c04e9167b59d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1784823629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848453897760617886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b5743dd4285b44da022fcccf7608ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
+  FreezePea: {fileID: 3844495368432377855, guid: 88ee9e46f1bc69043b4a2299cfb35dec,
+    type: 3}
