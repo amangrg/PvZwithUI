@@ -50,6 +50,13 @@ public class UserEvent : MonoBehaviour
         seedClicked = true;
     }
 
+    public void trashEvent()
+    {
+        plantid = -1;
+        seedClicked = false;
+        plantSpriteMng();
+    }
+
     //Modularise this function
 
     /*
