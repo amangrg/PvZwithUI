@@ -8,6 +8,9 @@ public class RegularZombie : Zombie
     private float timer = 0f;
     private bool walk = true;
     public GameObject Smoke;
+    public bool frozen = false;
+    private float freezeTimer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,23 @@ public class RegularZombie : Zombie
         {
             zombieWalk();
         }
+        if (frozen)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,1f,1f);
+            speed = 0.1f;
+            if (freezeTimer < 5f)
+            {
+                freezeTimer += Time.deltaTime;
+            }
+            else
+            {
+                freezeTimer = 0f;
+                frozen = false;
+                speed = 0.5f;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+
         if (checkPath())
         {
             walk = false;
@@ -57,6 +77,13 @@ public class RegularZombie : Zombie
     {
         if (other.gameObject.tag == "peaBullet")
         {
+            updateHealth();
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "freezeBullet")
+        {
+            frozen = true;
             updateHealth();
             Destroy(other.gameObject);
         }
