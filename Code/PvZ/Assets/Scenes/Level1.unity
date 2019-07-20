@@ -3131,12 +3131,12 @@ MonoBehaviour:
   userEvent: {fileID: 1749176547}
   plantCosts: 3200000064000000
   GameOver: 0
-  Level1_Complete: 0
+  Level_Complete: 0
   GameQuitDialog: 0
   HugeWave: 0
   PauseMenu: {fileID: 467539894}
   GameOverUI: {fileID: 696043083}
-  Level1CompleteUI: {fileID: 1380439938}
+  LevelCompleteUI: {fileID: 1380439938}
   GameQuitDiaglogBox: {fileID: 1972230629}
   HugeWaveUI: {fileID: 1536507811}
   checkButtonCoolTime: 0000
@@ -3329,10 +3329,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 2935345062824287308, guid: 3ed6194deef18e14a9bc9330d778e0ff, type: 3}
-  Regular_Zombie: {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937,
-    type: 3}
+  Zombies:
+  - {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937, type: 3}
   setWorld: {fileID: 1036435280}
-  game_manager: {fileID: 331634691}
+  gameManager: {fileID: 331634691}
+  levelzombies: 5
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

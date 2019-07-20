@@ -10,7 +10,7 @@ public class RegularZombie : MonoBehaviour
     public GameObject Smoke;
 
     public bool frozen = false;
-    private float freezeTimer = 0f;
+    protected float freezeTimer = 0f;
     protected float speed;
     protected float health;
 
@@ -94,12 +94,14 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            Destroy(gameObject);
             GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count++;
             GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress();
 
             if (GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count == GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count)
-                GameObject.Find("GameManager").GetComponent<GameManager>().Level1_Complete();
+                GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
+
+            Destroy(gameObject);
+            
         }
     }
 
@@ -126,7 +128,7 @@ public class RegularZombie : MonoBehaviour
     public float GetProgress()
     {
         float temp = GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count;
-        return (temp / 10);
+        return (temp / GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count);
     }
 
 }

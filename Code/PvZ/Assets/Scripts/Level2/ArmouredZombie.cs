@@ -14,11 +14,27 @@ public class ArmouredZombie : RegularZombie
     // Update is called once per frame
     void Update()
     {
-
         if (walk)
         {
             zombieWalk();
         }
+        if (frozen)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1f);
+            speed = 0.1f;
+            if (freezeTimer < 5f)
+            {
+                freezeTimer += Time.deltaTime;
+            }
+            else
+            {
+                freezeTimer = 0f;
+                frozen = false;
+                speed = 0.5f;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+
         if (checkPath())
         {
             walk = false;

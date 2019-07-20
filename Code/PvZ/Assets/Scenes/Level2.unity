@@ -3253,12 +3253,12 @@ MonoBehaviour:
   userEvent: {fileID: 1749176547}
   plantCosts: 32000000640000009600000032000000
   GameOver: 0
-  Level1_Complete: 0
+  Level_Complete: 0
   GameQuitDialog: 0
   HugeWave: 0
   PauseMenu: {fileID: 467539894}
   GameOverUI: {fileID: 696043083}
-  Level1CompleteUI: {fileID: 1380439938}
+  LevelCompleteUI: {fileID: 1380439938}
   GameQuitDiaglogBox: {fileID: 1972230629}
   HugeWaveUI: {fileID: 1536507811}
   checkButtonCoolTime: 00000000
@@ -3455,16 +3455,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273996607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d2539b96859dd4fa36cf106f4aac18, type: 3}
+  m_Script: {fileID: 11500000, guid: f3aa569dc1d9da944a5218b60878e46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 2935345062824287308, guid: 3ed6194deef18e14a9bc9330d778e0ff, type: 3}
-  Regular_Zombie: {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937,
-    type: 3}
+  Zombies:
+  - {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937, type: 3}
+  - {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab, type: 3}
   setWorld: {fileID: 1036435280}
-  game_manager: {fileID: 331634691}
-  Armoured_Zombie: {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab,
-    type: 3}
+  gameManager: {fileID: 331634691}
+  levelzombies: 5
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

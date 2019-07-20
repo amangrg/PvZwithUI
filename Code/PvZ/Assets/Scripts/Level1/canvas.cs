@@ -13,13 +13,13 @@ public class canvas : MonoBehaviour
 
     [HideInInspector]
     public bool GameOver = false;
-    public bool Level1_Complete = false;
+    public bool Level_Complete = false;
     public static bool GamePaused = false;
     public bool GameQuitDialog = false;
     public bool HugeWave = false;
     public GameObject PauseMenu;
     public GameObject GameOverUI;
-    public GameObject Level1CompleteUI;
+    public GameObject LevelCompleteUI;
     public GameObject GameQuitDiaglogBox;
     public GameObject HugeWaveUI;
     //public GameObject HugeWaveUI;
@@ -56,7 +56,7 @@ public class canvas : MonoBehaviour
         Debug.Log(CurrentLevel);
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
-        Level1CompleteUI.SetActive(false);
+        LevelCompleteUI.SetActive(false);
         GameQuitDiaglogBox.SetActive(false);
         updateSunCount(0);
         for (int i = 0; i < plantCosts.Length; i++)
@@ -87,10 +87,10 @@ public class canvas : MonoBehaviour
             GameOverUI.SetActive(true);
         }
 
-        if (Level1_Complete)
+        if (Level_Complete)
         {
             //Time.timeScale = 0f;
-            Level1CompleteUI.SetActive(true);
+            LevelCompleteUI.SetActive(true);
         }
         if (GameQuitDialog)
         {
