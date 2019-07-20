@@ -62,6 +62,10 @@ public class RegularZombie : Zombie
         if (health == 0)
         {
             Destroy(gameObject);
+            GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count++;
+
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count == GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count)
+                GameObject.Find("GameManager").GetComponent<GameManager>().Level1_Complete();
         }
     }
 

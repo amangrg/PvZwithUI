@@ -13,10 +13,11 @@ public class canvas : MonoBehaviour
 
     [HideInInspector]
     public bool GameOver = false;
+    public bool Level1_Complete = false;
     public static bool GamePaused = false;
     public GameObject PauseMenu;
     public GameObject GameOverUI;
-    //public GameObject GameWonUI;
+    public GameObject Level1CompleteUI;
     //public GameObject HugeWaveUI;
     public bool[] checkButtonCoolTime = new bool[2];
     public float[] timeToWait = new float[2] { 7.0f, 7.0f };
@@ -39,7 +40,7 @@ public class canvas : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
-        //GameWonUI.SetActive(false);
+        Level1CompleteUI.SetActive(false);
 
         updateSunCount(0);
         for (int i = 0; i < 2; i++)
@@ -68,6 +69,12 @@ public class canvas : MonoBehaviour
         {
             Time.timeScale = 0f;
             GameOverUI.SetActive(true);
+        }
+
+        if (Level1_Complete)
+        {
+            //Time.timeScale = 0f;
+            Level1CompleteUI.SetActive(true);
         }
 
     }

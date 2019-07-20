@@ -453,6 +453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1195881279}
   userEvent: {fileID: 1749176547}
+  Zombie_Count: 10
+  Initial_Zombie_Count: 10
+  Kill_Count: 0
 --- !u!1 &364170006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,8 +2456,10 @@ MonoBehaviour:
   userEvent: {fileID: 1749176547}
   plantCosts: 3200000064000000
   GameOver: 0
+  Level1_Complete: 0
   PauseMenu: {fileID: 467539894}
   GameOverUI: {fileID: 696043083}
+  Level1CompleteUI: {fileID: 1380439938}
   checkButtonCoolTime: 0000
   timeToWait:
   - 7
