@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6229221339460184343}
   - component: {fileID: 1422078341791075166}
   - component: {fileID: -8339054966070253047}
+  - component: {fileID: 9155592110766992554}
   m_Layer: 8
   m_Name: armouredZombie
   m_TagString: Untagged
@@ -714,3 +715,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
+  frozen: 0
+--- !u!95 &9155592110766992554
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229221339460184340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 708ca16039df2b6419927d77cde64157, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
