@@ -5,17 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-
+    public static int LevelProgress;
+    void Start()
+    {
+        LevelProgress = PlayerPrefs.GetInt("Current Level",1);
+        Debug.Log(LevelProgress);
+    }
     public void Playbutton()
     {
         Debug.Log("Play button Pressed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(LevelProgress);
     }
 
     public void QuitButton()
     {
         //Debug.Log("Quit button Pressed");
-        Application.Quit();
+        //Application.Quit();
+        PlayerPrefs.DeleteKey("Current Level");
+
     }
 
     public void CreditsButton()

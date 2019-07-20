@@ -24,6 +24,7 @@ public class canvas : MonoBehaviour
     private float[] currentWaitTime = new float[2];
     public Sprite[] panelChargeButtonImage = new Sprite[2];
     public Sprite[] panelImage = new Sprite[2];
+    public int CurrentLevel = 1;
     //public GameObject GameOverUI;
     //public GameObject GameWonUI;
     // Start is called before the first frame update
@@ -38,6 +39,10 @@ public class canvas : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("Current Level", 2);
+        PlayerPrefs.Save();
+        CurrentLevel = PlayerPrefs.GetInt("Current Level", 0);
+        Debug.Log(CurrentLevel);
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
         Level1CompleteUI.SetActive(false);

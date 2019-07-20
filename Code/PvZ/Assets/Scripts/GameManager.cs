@@ -10,11 +10,10 @@ public class GameManager : MonoBehaviour
     public int Zombie_Count = 10;
     public int Initial_Zombie_Count = 10;
     public int Kill_Count = 0;
-
-
+    
     void Start()
     {
-
+        
     }
 
     void Update()
