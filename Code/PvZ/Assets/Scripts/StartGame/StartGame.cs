@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour
 {
     int resumeLevel;
+    public Button resume;
     void Start()
     {
-        resumeLevel = PlayerPrefs.GetInt("Current Level", 3);
-        Debug.Log(resumeLevel);
+        resumeLevel = PlayerPrefs.GetInt("Current Level");
+        if(resumeLevel == 0)
+        {
+            resume.interactable = false;
+        } 
     }
     public void Resume()
     {
