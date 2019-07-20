@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/ecdedabefac795143b6e1161f25bdbe2
+    guid: ecdedabefac795143b6e1161f25bdbe2
   - enabled: 1
     path: Assets/Scenes/StartScreen.unity
     guid: d58fc5a42b15b2947abb5ffd65aee40b
@@ -19,7 +22,7 @@ EditorBuildSettings:
     guid: 3694bfc219b59f44282d421376735ae9
   - enabled: 1
     path: Assets/Scenes/Level2.unity
-    guid: ecdedabefac795143b6e1161f25bdbe2
+    guid: 806fd5e0a4d149b4782d03b78adcc4bd
   - enabled: 1
     path: Assets/Scenes/CreditScreen.unity
     guid: a50b98d86650dd34aa70a03c15b57711
