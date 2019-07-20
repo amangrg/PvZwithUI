@@ -14,6 +14,16 @@ public class ArmouredZombie : RegularZombie
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (walk)
+        {
+            zombieWalk();
+        }
+        if (checkPath())
+        {
+            walk = false;
+        }
+        else
+            walk = true;
     }
 }

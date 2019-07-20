@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RegularZombie : MonoBehaviour
 {
-    private float TimeInterval = 1f;
-    private float timer = 0f;
-    private bool walk = true;
+    protected float TimeInterval = 1f;
+    protected float timer = 0f;
+    protected bool walk = true;
     public GameObject Smoke;
     protected float speed;
     protected float health;
