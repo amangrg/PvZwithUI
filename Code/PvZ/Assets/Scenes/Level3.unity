@@ -866,8 +866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1195881279}
   userEvent: {fileID: 1749176547}
-  Zombie_Count: 10
-  Initial_Zombie_Count: 10
+  Zombie_Count: 6
+  Initial_Zombie_Count: 6
   Kill_Count: 0
 --- !u!1 &364170006
 GameObject:
@@ -4029,16 +4029,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273996607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3aa569dc1d9da944a5218b60878e46b, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b68b412a4252a42938a035f2ed1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 2935345062824287308, guid: 3ed6194deef18e14a9bc9330d778e0ff, type: 3}
   Zombies:
   - {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937, type: 3}
   - {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab, type: 3}
+  - {fileID: 4018905897694637143, guid: 9241c554da34b8846bcdd8eb9ce6409b, type: 3}
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
-  levelzombies: 5
+  levelzombies: 3
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0
