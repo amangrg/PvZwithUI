@@ -29,8 +29,8 @@ public class canvas : MonoBehaviour
     public Sprite[] panelChargeButtonImage;
     public Sprite[] panelImage;
     private float WaveTimer = 0f;
+    private int currentLevel;
 
-    public int CurrentLevel = 1;
     //public GameObject GameOverUI;
     //public GameObject GameWonUI;
 
@@ -50,10 +50,9 @@ public class canvas : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("Current Level", 2);
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("Current Level", currentLevel);
         PlayerPrefs.Save();
-        CurrentLevel = PlayerPrefs.GetInt("Current Level", 0);
-        Debug.Log(CurrentLevel);
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
         LevelCompleteUI.SetActive(false);

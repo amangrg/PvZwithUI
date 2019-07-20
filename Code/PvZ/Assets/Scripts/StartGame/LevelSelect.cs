@@ -2,10 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
     // Start is called before the first frame update
+    int levelLocked;
+    public Button[] button;
+    public int total_levels = 3;
+    void Start()
+    {
+        levelLocked = PlayerPrefs.GetInt("Current Level");
+        Debug.Log(levelLocked);
+        for(int  i = levelLocked - 2; i < total_levels; i++)
+        {
+            button[i].interactable = false;
+        }
+    }
     public void LevelOne()
     {
         //Debug.Log("Level One Loaded");
@@ -18,9 +31,14 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
+    public void LevelThree()
+    {
+        //Debug.Log("LevelThree Loaded");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
     public void BackButton()
     {
         //Debug.Log("Back button Pressed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 }

@@ -9,6 +9,6 @@ public class Credits : MonoBehaviour
     public void BackButton()
     {
         Debug.Log("Back button Pressed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(0);
     }
 }

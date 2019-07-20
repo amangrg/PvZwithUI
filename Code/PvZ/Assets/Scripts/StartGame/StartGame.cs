@@ -5,11 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-
+    int resumeLevel;
+    void Start()
+    {
+        resumeLevel = PlayerPrefs.GetInt("Current Level", 3);
+        Debug.Log(resumeLevel);
+    }
+    public void Resume()
+    {
+        SceneManager.LoadScene(resumeLevel);
+    }
     public void Playbutton()
     {
         //Debug.Log("Play button Pressed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.DeleteKey("Current Level");
+        SceneManager.LoadScene(3);
     }
 
     public void QuitButton()
@@ -21,7 +31,11 @@ public class StartGame : MonoBehaviour
     public void CreditsButton()
     {
         //Debug.Log("Credits button Pressed");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(1);
     }
 
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
