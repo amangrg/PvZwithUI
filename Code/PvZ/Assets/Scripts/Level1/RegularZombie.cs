@@ -7,6 +7,7 @@ public class RegularZombie : Zombie
     private float TimeInterval = 1f;
     private float timer = 0f;
     private bool walk = true;
+    public GameObject Smoke;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class RegularZombie : Zombie
 
         if (health == 0)
         {
+            Instantiate(Smoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
             GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count++;
             GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress();

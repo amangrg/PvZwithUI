@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9923e506cd87da4ab67bb39ea5c2294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
   Sun: {fileID: 2935345062824287308, guid: 3ed6194deef18e14a9bc9330d778e0ff, type: 3}
 --- !u!61 &-2615101041540113804
 BoxCollider2D:
