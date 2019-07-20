@@ -63,6 +63,7 @@ public class RegularZombie : Zombie
         {
             Destroy(gameObject);
             GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count++;
+            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress();
 
             if (GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count == GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count)
                 GameObject.Find("GameManager").GetComponent<GameManager>().Level1_Complete();
@@ -88,4 +89,11 @@ public class RegularZombie : Zombie
             return false;
 
     }
+
+    public float GetProgress()
+    {
+        float temp = GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count;
+        return (temp / 10);
+    }
+
 }

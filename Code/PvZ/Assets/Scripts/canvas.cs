@@ -15,18 +15,26 @@ public class canvas : MonoBehaviour
     public bool GameOver = false;
     public bool Level1_Complete = false;
     public static bool GamePaused = false;
+    public bool GameQuitDialog = false;
     public GameObject PauseMenu;
     public GameObject GameOverUI;
     public GameObject Level1CompleteUI;
+    public GameObject GameQuitDiaglogBox;
     //public GameObject HugeWaveUI;
     public bool[] checkButtonCoolTime = new bool[2];
     public float[] timeToWait = new float[2] { 7.0f, 7.0f };
     private float[] currentWaitTime = new float[2];
     public Sprite[] panelChargeButtonImage = new Sprite[2];
     public Sprite[] panelImage = new Sprite[2];
+
     public int CurrentLevel = 1;
     //public GameObject GameOverUI;
     //public GameObject GameWonUI;
+
+
+    public Slider progressBar;
+
+
     // Start is called before the first frame update
 
     //at start updateSunCount should be 0 and ButtonCoolTime of each button must be false
@@ -46,7 +54,7 @@ public class canvas : MonoBehaviour
         PauseMenu.SetActive(false);
         GameOverUI.SetActive(false);
         Level1CompleteUI.SetActive(false);
-
+        GameQuitDiaglogBox.SetActive(false);
         updateSunCount(0);
         for (int i = 0; i < 2; i++)
         {
@@ -81,7 +89,10 @@ public class canvas : MonoBehaviour
             //Time.timeScale = 0f;
             Level1CompleteUI.SetActive(true);
         }
-
+        if (GameQuitDialog)
+        {
+            GameQuitDiaglogBox.SetActive(true);
+        }
     }
 
     /*
@@ -162,6 +173,8 @@ public class canvas : MonoBehaviour
 
     public void Resume()
     {
+        GameQuitDialog = false;
+        GameQuitDiaglogBox.SetActive(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
@@ -169,6 +182,11 @@ public class canvas : MonoBehaviour
     }
 
     public void Quit()
+    {
+        GameQuitDialog = true;
+    }
+
+    public void QuitConfirm()
     {
         Application.Quit();
     }
