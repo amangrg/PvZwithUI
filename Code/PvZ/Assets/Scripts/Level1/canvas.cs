@@ -118,10 +118,10 @@ public class canvas : MonoBehaviour
 
     IEnumerator waiter()
     {
-        Debug.Log("wait for sec");
+        //Debug.Log("wait for sec");
         yield return new WaitForSeconds(5);
         LevelCompleteUI.SetActive(true);
-
+        //Debug.Log("active level");
     }
     /*
     checkCooldownTimer function will check if the checkButtonCoolTime of any button is true
@@ -251,20 +251,13 @@ public class canvas : MonoBehaviour
     }
 
     /*
-    level2Scene function will load the Level 2 Scene after successful 
-    completion of level 1
+    nextLevelScene function will load the next Level Scene after successful 
+    completion of current level
     */
-    public void level2Scene()
+    public void nextLevelScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    /*
-    level3Scene function will load the Level 3 Scene after successful
-    completion of level 2
-    */
-    public void level3Scene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        Level_Complete = false;
     }
     public void updateSunCount(int SunCost)
     {
