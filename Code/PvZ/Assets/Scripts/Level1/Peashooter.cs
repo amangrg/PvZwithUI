@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/* The Peashooter class inherits Plant class and performs pea shooting task when it encounters zombie in its path*/
+
 public class Peashooter : Plant
 {
     private float TimeInterval = 2f;
-    public GameObject Pea;
-    private float timer;
+    [SerializeField]
+    private GameObject Pea = null;
+    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
+        health = 5;    //initial health of peashooter
     }
 
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime;
         if (timer >= TimeInterval && checkPath())
         {
             timer = 0f;
             shootPea();
         }
-        
     }
 
     private void shootPea()
@@ -41,6 +43,5 @@ public class Peashooter : Plant
         }
         else
             return false;
-
     }
 }
