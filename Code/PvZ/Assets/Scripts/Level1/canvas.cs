@@ -5,8 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
+/*
+Canvas class displays the panel and its elements, transition UIs, dialog boxes
+*/
 public class canvas : MonoBehaviour
 {
+    [SerializeField]
     public Text SuncountT;
     public GameObject userEvent;
     public int[] plantCosts;
@@ -18,13 +22,12 @@ public class canvas : MonoBehaviour
     public bool GameQuitDialog = false;
     public bool GameMenuDialog = false;
     public bool HugeWave = false;
-    public GameObject PauseMenu;
-    public GameObject GameOverUI;
-    public GameObject LevelCompleteUI;
-    public GameObject GameQuitDialogBox;
-    public GameObject GameMenuDialogBox;
-    public GameObject HugeWaveUI;
-    //public GameObject HugeWaveUI;
+    public GameObject PauseMenu = null;
+    public GameObject GameOverUI = null;
+    public GameObject LevelCompleteUI = null;
+    public GameObject GameQuitDialogBox = null;
+    public GameObject GameMenuDialogBox = null;
+    public GameObject HugeWaveUI = null;
     public bool[] checkButtonCoolTime;
     public float[] timeToWait;
     public float[] currentWaitTime;
@@ -32,24 +35,20 @@ public class canvas : MonoBehaviour
     public Sprite[] panelImage;
     private float WaveTimer = 0f;
     private int currentLevel;
-
-    //public GameObject GameOverUI;
-    //public GameObject GameWonUI;
-
-
     public Slider progressBar;
 
-
-    // Start is called before the first frame update
-
-    //at start updateSunCount should be 0 and ButtonCoolTime of each button must be false
 
     void Awake()
     {
         Time.timeScale = 1f;
     }
 
-
+    /*
+    Start function will be called before the first frame update
+    Set the current level index in PlayerPrefs
+    At start updateSunCount will be set to 0 and ButtonCoolTime of each button will be set to false,
+    All the Dialog boxes and transition UI's are disabled
+    */
     void Start()
     {
         currentLevel = SceneManager.GetActiveScene().buildIndex;
@@ -61,14 +60,18 @@ public class canvas : MonoBehaviour
         GameQuitDialogBox.SetActive(false);
         GameMenuDialogBox.SetActive(false);
         updateSunCount(0);
-        for (int i = 0; i < plantCosts.Length; i++)
+        for (int i = 0; i < plantCosts.Length; ++i)
         {
             checkButtonCoolTime[i] = false;
         }
     }
 
 
-    // Update is called once per frame
+    /* 
+    Update is called once per frame
+    Update function calls checkCoolDownTimer function to check cool down time for each seed button in panel
+    Update function checks for Escape key press and the boolian variables to enable different transition UI's
+    */
     void Update()
     {
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
@@ -90,7 +93,6 @@ public class canvas : MonoBehaviour
         }
         if (Level_Complete)
         {
-            //Time.timeScale = 0f;
             StartCoroutine(waiter());
         }
         if (GameQuitDialog)
@@ -116,13 +118,16 @@ public class canvas : MonoBehaviour
         }
     }
 
+    /*
+    waiter function will make the current screen wait for given second 
+    before enabling the Level Complete transition UI
+    */
     IEnumerator waiter()
     {
-        //Debug.Log("wait for sec");
         yield return new WaitForSeconds(5);
         LevelCompleteUI.SetActive(true);
-        //Debug.Log("active level");
     }
+
     /*
     checkCooldownTimer function will check if the checkButtonCoolTime of any button is true
     then increment the currentWaitTime of that button till timeToWait of that button and 
@@ -131,15 +136,13 @@ public class canvas : MonoBehaviour
     */
     public void checkCooldownTimer()
     {
-        for (int i = 0; i < checkButtonCoolTime.Length; i++)
+        for (int i = 0; i < checkButtonCoolTime.Length; ++i)
         {
             if (checkButtonCoolTime[i])
             {
                 if ((float)Math.Ceiling(currentWaitTime[i]) != timeToWait[i])
                 {
                     currentWaitTime[i] += Time.deltaTime;
-                    //currentWaitTime[i] = (float)Math.Ceiling(currentWaitTime[i]);
-                    //Debug.Log(currentWaitTime[i]);
                     userEvent.GetComponent<UserEvent>().button[i].interactable = false;
                 }
                 else
@@ -151,7 +154,6 @@ public class canvas : MonoBehaviour
             }
             else
             {
-                //Debug.Log(1);
                 checkButtonActive();
             }
         }
@@ -159,16 +161,13 @@ public class canvas : MonoBehaviour
 
     /*
     If the checkButtonCoolTime is false and the suncost is enough for that seed button then 
-    set it interactive and change the button image to available 
-    Else, set button uninteractive
+    set it to interactive and change the button image to available 
+    Else, set button uninteractive   
     */
     public void checkButtonActive()
     {
-        for (int i = 0; i < plantCosts.Length; i++)
+        for (int i = 0; i < plantCosts.Length; ++i)
         {
-            //Debug.Log(plantCosts[i]);
-            //Debug.Log(System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text));
-            //Debug.Log(plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text));
             if ((!checkButtonCoolTime[i]))
             {
                 if ((plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text)))
@@ -179,7 +178,6 @@ public class canvas : MonoBehaviour
                 {
                     userEvent.GetComponent<UserEvent>().button[i].interactable = false;
                 }
-                //Debug.Log("but");
                 checkButtonCoolTime[i] = false;
                 Button btn = userEvent.GetComponent<UserEvent>().button[i];
                 Sprite img = panelImage[i];
@@ -192,6 +190,9 @@ public class canvas : MonoBehaviour
         }
     }
 
+    /*
+    pause function will enable on clicking escape pause Menu UI
+    */
     public void Paused()
     {
         PauseMenu.SetActive(true);
@@ -199,6 +200,10 @@ public class canvas : MonoBehaviour
         GamePaused = true;
     }
 
+    /*
+    resume function will first disable the dialog boxes 
+    and then disable the pause menu UI
+    */
     public void Resume()
     {
         GameQuitDialog = false;
@@ -243,6 +248,11 @@ public class canvas : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    /*
+    restart function will be called on clicking restart button
+    it will restart the level
+    */
     public void Restart()
     {
         Time.timeScale = 1f;
@@ -259,6 +269,11 @@ public class canvas : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Level_Complete = false;
     }
+
+    /*
+    updateSunCount function takes SunCost as argument
+    It displays the sunCost on panel
+    */
     public void updateSunCount(int SunCost)
     {
         SuncountT.text = SunCost.ToString();
