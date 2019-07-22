@@ -6,45 +6,64 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
+    
+    private int levelLocked = 3;
+
+    [SerializeField]
+    private Button level1 = null;
+
+    [SerializeField]
+    private Button level2 = null;
+
+    [SerializeField]
+    private Button level3 = null;
+
+    [SerializeField]
+    private Button back = null;
+
+
     // Start is called before the first frame update
-    int levelLocked;
-    public Button[] button;
-    public int total_levels = 3;
     void Start()
     {
-        levelLocked = PlayerPrefs.GetInt("Current Level",2);
-        Debug.Log(levelLocked);
-        for(int  i = levelLocked - 2; i < total_levels; i++)
+        levelLocked = PlayerPrefs.GetInt("Current Level",3);
+        //Debug.Log(levelLocked);
+        level1.onClick.AddListener(delegate { LevelOne(); });
+        level2.onClick.AddListener(delegate { LevelTwo(); });
+        level3.onClick.AddListener(delegate { LevelThree(); });
+        back.onClick.AddListener(delegate { BackButton(); });
+        if (levelLocked == 3)
         {
-            button[i].interactable = false;
+            level2.interactable = false;
+            level3.interactable = false;
+        }
+        else if (levelLocked == 4)
+        {
+            level3.interactable = false;
         }
     }
-    public void LevelOne()
+
+    //The below functions are used to load particular one, the one whos button was pressed.
+    private void LevelOne()
     {
         //Debug.Log("Level One Loaded");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LevelTwo()
+    private void LevelTwo()
     {
         //Debug.Log("LevelTwo Loaded");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
-    public void LevelThree()
+    private void LevelThree()
     {
         //Debug.Log("LevelThree Loaded");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
     }
-    public void BackButton()
+    private void BackButton()
     {
         //Debug.Log("Back button Pressed");
         SceneManager.LoadScene(0);
     }
 
-    public void Resetbutton()
-    {
-        PlayerPrefs.DeleteKey("Current level");
-        Debug.Log(PlayerPrefs.GetInt("Current Level"));
-    }
 }

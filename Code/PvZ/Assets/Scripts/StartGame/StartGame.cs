@@ -6,40 +6,68 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour
 {
-    int resumeLevel;
-    public Button resume;
+    private int resumeLevel = 0;           //To resume the level 
+    [SerializeField]
+    private Button resume = null;
+    [SerializeField]
+    private Button play= null;
+    [SerializeField]
+    private Button quit = null;
+    [SerializeField]
+    private Button credits = null;
+    [SerializeField]
+    private Button levels = null;
+
+    
+    //resume.GetComponent<Button>().onClick.AddListener(() => onButtonClick(index));
+
+    //Start Function is called at the start of the game always,it is used to initialize methods and variables needed at the start.
     void Start()
     {
-        resumeLevel = PlayerPrefs.GetInt("Current Level");
+        resumeLevel = PlayerPrefs.GetInt("Current Level");         //Getting the Current Level which the user was on
         if(resumeLevel == 0)
         {
-            resume.interactable = false;
-        } 
+            resume.interactable = false;                           //Suggesting that user was on level 0 at the start
+        }
+
+        resume.onClick.AddListener(delegate { Resume(); });
+        play.onClick.AddListener(delegate { Playbutton(); });
+        quit.onClick.AddListener(delegate { QuitButton(); });
+        credits.onClick.AddListener(delegate { CreditsButton(); });
+        levels.onClick.AddListener(delegate { LevelSelect(); });
     }
-    public void Resume()
+
+    //Resume the last played level
+    private void Resume()
     {
         SceneManager.LoadScene(resumeLevel);
     }
-    public void Playbutton()
+
+    //Start a New game
+    private void Playbutton()
     {
         //Debug.Log("Play button Pressed");
         PlayerPrefs.DeleteKey("Current Level");
         SceneManager.LoadScene(3);
     }
 
-    public void QuitButton()
+    //Quit the Game
+
+    private void QuitButton()
     {
         //Debug.Log("Quit button Pressed");
         Application.Quit();
     }
 
-    public void CreditsButton()
+    //Display Credits
+    private void CreditsButton()
     {
         //Debug.Log("Credits button Pressed");
         SceneManager.LoadScene(1);
     }
 
-    public void LevelSelect()
+    //Display LevelSelect Screen
+    private void LevelSelect()
     {
         SceneManager.LoadScene(2);
     }
