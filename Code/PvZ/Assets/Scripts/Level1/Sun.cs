@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*Sun class gives motion to the natural falling sun and then destroys the sun object if it is not clicked*/
 public class Sun : MonoBehaviour
 {
     private float fspeed = 1f;
-    private float timer;
+    private float timer = 0f;
     private float lifetime = 11f;
+    [SerializeField]
     [HideInInspector]
-    public bool sunflowerSun;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private bool sunflowerSun = false;
 
     // Update is called once per frame
     void Update()
@@ -28,5 +25,10 @@ public class Sun : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void flowerSun(bool value)
+    {
+        sunflowerSun = value;
     }
 }

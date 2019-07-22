@@ -5,8 +5,9 @@ using UnityEngine;
 public class Sunflower : Plant
 {
     private float TimeInterval = 4f;
-    public GameObject Sun;
-    private float timer;
+    [SerializeField]
+    private GameObject Sun = null;
+    private float timer = 0f;
 
     void Start()
     {
@@ -31,7 +32,14 @@ public class Sunflower : Plant
         Quaternion.identity,
         transform
         );
-        sun.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
-        sun.GetComponent<Sun>().sunflowerSun = true;
+
+
+        if (sun != null)
+        {
+            sun.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+            sun.GetComponent<Sun>().flowerSun(true);
+        }
+        else
+            Debug.Log("Sun object is null");
     }
 }

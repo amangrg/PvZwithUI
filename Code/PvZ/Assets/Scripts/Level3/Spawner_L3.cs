@@ -47,7 +47,7 @@ public class Spawner_L3 : MonoBehaviour
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
             Zombies[spawn],
-            setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(0, 5)],
+            setWorld.GetComponent<SetWorld>().getLane(),
             Quaternion.identity,
             transform
             );
@@ -77,7 +77,7 @@ public class Spawner_L3 : MonoBehaviour
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
            Zombies[spawn],
-            setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(1, 4)],
+            setWorld.GetComponent<SetWorld>().getLane(),
             Quaternion.identity,
             transform
             );
@@ -92,7 +92,7 @@ public class Spawner_L3 : MonoBehaviour
     {
         GameObject zombie = Instantiate(
        Zombies[2],
-        setWorld.GetComponent<SetWorld>().lanePositions[Random.Range(1, 4)],
+        setWorld.GetComponent<SetWorld>().getLane(),
         Quaternion.identity,
         transform
         );

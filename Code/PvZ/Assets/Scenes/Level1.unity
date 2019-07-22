@@ -2953,8 +2953,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lawn_tile: {fileID: 6615060874783168378, guid: 56ce55755f7edac4cb3b30b8df5afed8,
     type: 3}
-  lanePositions: []
-  game_over_line: 0
 --- !u!1 &1039110293
 GameObject:
   m_ObjectHideFlags: 0

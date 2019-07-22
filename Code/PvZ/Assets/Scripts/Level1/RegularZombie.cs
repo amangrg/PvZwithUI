@@ -68,7 +68,7 @@ public class RegularZombie : MonoBehaviour
     protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
-        if (transform.position.x < GameObject.Find("SetWorld").GetComponent<SetWorld>().game_over_line)
+        if (transform.position.x < GameObject.Find("SetWorld").GetComponent<SetWorld>().getGameOver())
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().Game_Over();
         }
