@@ -11,6 +11,10 @@ public class Plant : MonoBehaviour
     protected int cost=0;
     [SerializeField]
     private GameObject Smoke = null;
+
+    //plant eat music kept public access modifier for inspector mapping.
+    public AudioSource audiosource;
+    public AudioClip eatsound;
     
     /*
         Function: updateHealth() function decreases health of a plant, when a zombie eats that plant, and lastly destroys plant
@@ -21,6 +25,7 @@ public class Plant : MonoBehaviour
     public void updateHealth()
     {
         health--;
+        audiosource.PlayOneShot(eatsound);
         if(health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);

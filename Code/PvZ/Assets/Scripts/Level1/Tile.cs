@@ -7,6 +7,10 @@ public class Tile : MonoBehaviour
 
     public bool has_plant;
 
+    // modifier kept public on purpose
+    public AudioSource audiosrc;
+    public AudioClip placed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,7 @@ public class Tile : MonoBehaviour
         {
             GameObject plant = (GameObject)Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.2f, 0), Quaternion.identity);
             has_plant = true;
+            audiosrc.PlayOneShot(placed);
             return true;
         }
         return false;

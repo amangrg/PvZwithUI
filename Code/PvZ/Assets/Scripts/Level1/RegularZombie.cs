@@ -15,6 +15,11 @@ public class RegularZombie : MonoBehaviour
     protected float speed = 0f;
     protected int health = 0;
 
+    //audioclips need access from inspector hence kept public
+    public AudioSource audiosource;
+    public AudioClip collidesound;
+    public AudioClip deathsound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +79,7 @@ public class RegularZombie : MonoBehaviour
         {
             updateHealth();
             Destroy(other.gameObject);
+            audiosource.PlayOneShot(collidesound);
         }
 
         if (other.gameObject.tag == "freezeBullet")
@@ -81,8 +87,13 @@ public class RegularZombie : MonoBehaviour
             frozen = true;
             updateHealth();
             Destroy(other.gameObject);
+            audiosource.PlayOneShot(collidesound);
         }
 
+        if (health == 2)
+        {
+            audiosource.PlayOneShot(deathsound);
+        }
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
