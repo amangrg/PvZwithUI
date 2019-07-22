@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This class assigns peas the speed and makes it move (transform) and then destroy itself as it hits zombie*/
 public class Pea : Projectile
 {
-    //    public Projectile proj;
-    public float speed = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        speed = 10f;
     }
 
     // Update is called once per frame

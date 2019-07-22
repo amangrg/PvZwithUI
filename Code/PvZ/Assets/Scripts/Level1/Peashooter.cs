@@ -2,36 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/* The Peashooter class inherits Plant class and performs pea shooting task when it encounters zombie in its path*/
+
 public class Peashooter : Plant
 {
     private float TimeInterval = 2f;
-    public GameObject Pea;
-    private float timer;
+    [SerializeField]
+    private GameObject Pea = null;
+    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
+        health = 5;    //initial health of peashooter
     }
 
     // Update is called once per frame
     void Update()
     {
-
         timer += Time.deltaTime;
         if (timer >= TimeInterval && checkPath())
         {
             timer = 0f;
             shootPea();
         }
-        
     }
+
+    /*
+        Function: shootPea() function creates new peas from the peashooter
+        Usage: called in Update() function 
+    */
 
     private void shootPea()
     {
         GameObject pea = (GameObject)Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
     }
 
+
+    /*
+        Function: checkPath() lets peashooter check whether there exists zombie in its path (row) and returns true or false accordingly.
+        Usage: called in Update() function
+    */
     private bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 18f, 1 << 8);
@@ -41,6 +53,5 @@ public class Peashooter : Plant
         }
         else
             return false;
-
     }
 }

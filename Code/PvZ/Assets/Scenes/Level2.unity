@@ -2135,7 +2135,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1195881284}
-        m_MethodName: level3Scene
+        m_MethodName: nextLevelScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
