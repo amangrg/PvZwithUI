@@ -42,7 +42,7 @@ public class Spawner_L3 : MonoBehaviour
     private void spawnZombies()
     {
         //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
-        if (gameManager.GetComponent<GameManager>().Zombie_Count > levelzombies)
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > levelzombies)
         {
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
@@ -52,16 +52,16 @@ public class Spawner_L3 : MonoBehaviour
             transform
             );
 
-            gameManager.GetComponent<GameManager>().Zombie_Count--;
+            gameManager.GetComponent<GameManager>().updateZombieCount();
 
         }
-        if (gameManager.GetComponent<GameManager>().Kill_Count == levelzombies)
+        if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies)
         {
             gameManager.GetComponent<GameManager>().HugeWave(true);
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 spawnBoss();
-                gameManager.GetComponent<GameManager>().Zombie_Count--;
+                gameManager.GetComponent<GameManager>().updateZombieCount();
             }
             spawnHorde();
 
@@ -71,7 +71,7 @@ public class Spawner_L3 : MonoBehaviour
 
     private void spawnHorde()
     {
-        while (gameManager.GetComponent<GameManager>().Zombie_Count > 0)
+        while (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
         {
             //Debug.Log("No of Zombies Spawned");
             int spawn = Random.Range(0, (Zombies.Length - 1));
@@ -82,7 +82,7 @@ public class Spawner_L3 : MonoBehaviour
             transform
             );
             //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
-            gameManager.GetComponent<GameManager>().Zombie_Count--;
+            gameManager.GetComponent<GameManager>().updateZombieCount();
 
         }
 

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject canvas;
-    public GameObject userEvent;
+    [SerializeField]
+    private GameObject canvas = null;
+    [SerializeField]
+    private GameObject UI = null;
+    [SerializeField]
+    private GameObject userEvent = null;
     private int TotalSun = 500;
-    public int Zombie_Count;
-    public int Initial_Zombie_Count;
+    private int Zombie_Count = 0;
+    private int Initial_Zombie_Count = 0;
     //[HideInInspector]
-    public int Kill_Count = 0;
-    
-    void Start()
-    {
-        
-    }
+    private int Kill_Count = 0;
 
     void Update()
     {
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour
     public void updateSun(int Suncount)
     {
         TotalSun += Suncount;
-        for (int i = 0; i < userEvent.GetComponent<UserEvent>().button.Length; i++)
+        for (int i = 0; i < userEvent.GetComponent<UserEvent>().button.Length; ++i)
         {
             canvas.GetComponent<canvas>().checkButtonActive();
         }
@@ -33,19 +32,44 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        canvas.GetComponent<canvas>().GameOver = true;
+        //     UI.GetComponent<UI>().GameOver = true;
+
+        Debug.Log("Game over!");
     }
 
     public void Level_Complete()
     {
-        //Debug.Log("Won");
-        canvas.GetComponent<canvas>().Level_Complete = true;
+        Debug.Log("Won");
+        //  UI.GetComponent<UI>().Level_Complete = true;
+
     }
 
     public void HugeWave(bool wave)
     {
         Debug.Log(wave);
-        canvas.GetComponent<canvas>().HugeWave = wave;
+      //  canvas.GetComponent<canvas>().HugeWave = wave;
     }
 
+    public void killed()
+    {
+        Kill_Count++;
+    }
+
+    public int getInitialCount()
+    {
+        return Initial_Zombie_Count;
+    }
+    
+    public int getKillCount()
+    {
+        return Kill_Count;
+    }
+    public int getZombieCount()
+    {
+        return Zombie_Count;
+    }
+    public void updateZombieCount()
+    {
+        Zombie_Count--;
+    }
 }

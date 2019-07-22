@@ -742,10 +742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1195881279}
+  UI: {fileID: 0}
   userEvent: {fileID: 1749176547}
-  Zombie_Count: 10
-  Initial_Zombie_Count: 10
-  Kill_Count: 0
 --- !u!1 &364170006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,7 +3328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.011250001, y: 0.82900006}
   m_AnchorMax: {x: 0.072500005, y: 0.875777}
-  m_AnchoredPosition: {x: 13.822418, y: -36.425556}
+  m_AnchoredPosition: {x: 13.822388, y: -36.425556}
   m_SizeDelta: {x: 16.367287, y: 13.565613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104467360
@@ -3702,7 +3700,6 @@ MonoBehaviour:
   - {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937, type: 3}
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
-  levelzombies: 5
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

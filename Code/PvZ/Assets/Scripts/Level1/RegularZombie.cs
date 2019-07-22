@@ -7,18 +7,17 @@ public class RegularZombie : MonoBehaviour
     protected float TimeInterval = 1f;
     protected float timer = 0f;
     protected bool walk = true;
-    public GameObject Smoke;
+    [SerializeField]
+    protected GameObject Smoke;
 
-    public bool frozen = false;
+    protected bool frozen = false;
     protected float freezeTimer = 0f;
-    protected float speed;
-    protected float health;
-
+    protected float speed = 0f;
+    protected int health = 0;
 
     // Start is called before the first frame update
     void Start()
     {
- 
         speed = 0.3f;
         health = 5;
     }
@@ -60,11 +59,6 @@ public class RegularZombie : MonoBehaviour
         health--;
     }
 
-    protected void zombieEat()
-    {
-
-    }
-
     protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
@@ -73,8 +67,6 @@ public class RegularZombie : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().Game_Over();
         }
     }
-
-
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
@@ -94,14 +86,13 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count++;
-            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress();
+            GameObject.Find("GameManager").GetComponent<GameManager>().killed();
+            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress(); /**/
 
-            if (GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count == GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count)
+            if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
                 GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
 
             Destroy(gameObject);
-            
         }
     }
 
@@ -127,8 +118,8 @@ public class RegularZombie : MonoBehaviour
 
     public float GetProgress()
     {
-        float temp = GameObject.Find("GameManager").GetComponent<GameManager>().Kill_Count;
-        return (temp / GameObject.Find("GameManager").GetComponent<GameManager>().Initial_Zombie_Count);
+        float temp = GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount();
+        return (temp / GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount());
     }
 
 }
