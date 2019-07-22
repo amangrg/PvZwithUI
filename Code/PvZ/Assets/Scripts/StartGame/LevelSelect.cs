@@ -12,7 +12,7 @@ public class LevelSelect : MonoBehaviour
     public int total_levels = 3;
     void Start()
     {
-        levelLocked = PlayerPrefs.GetInt("Current Level");
+        levelLocked = PlayerPrefs.GetInt("Current Level",2);
         Debug.Log(levelLocked);
         for(int  i = levelLocked - 2; i < total_levels; i++)
         {
@@ -40,5 +40,11 @@ public class LevelSelect : MonoBehaviour
     {
         //Debug.Log("Back button Pressed");
         SceneManager.LoadScene(0);
+    }
+
+    public void Resetbutton()
+    {
+        PlayerPrefs.DeleteKey("Current level");
+        Debug.Log(PlayerPrefs.GetInt("Current Level"));
     }
 }
