@@ -29,11 +29,21 @@ public class Peashooter : Plant
         }
     }
 
+    /*
+        Function: shootPea() function creates new peas from the peashooter
+        Usage: called in Update() function 
+    */
+
     private void shootPea()
     {
         GameObject pea = (GameObject)Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
     }
 
+
+    /*
+        Function: checkPath() lets peashooter check whether there exists zombie in its path (row) and returns true or false accordingly.
+        Usage: called in Update() function
+    */
     private bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 18f, 1 << 8);
