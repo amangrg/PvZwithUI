@@ -42,9 +42,7 @@ public class Spawner : MonoBehaviour
 
         if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
      
- {
-            Debug.Log(gameManager.GetComponent<GameManager>().getZombieCount());
-
+        {
             int spawn = Random.Range(0, (Zombies.Length));
             GameObject zombie = Instantiate(
             Zombies[spawn],

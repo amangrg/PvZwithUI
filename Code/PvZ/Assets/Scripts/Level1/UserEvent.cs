@@ -75,10 +75,10 @@ public class UserEvent : MonoBehaviour
             {
                 if (hit.transform.gameObject.GetComponent<Tile>().plant(Plants[plantid]))
                 {
-                    canvas.GetComponent<canvas>().checkButtonCoolTime[plantid] = true;
-                    gm.GetComponent<GameManager>().updateSun(-canvas.GetComponent<canvas>().plantCosts[plantid]);
+                    canvas.GetComponent<canvas>().setCoolTime(plantid);
+                    gm.GetComponent<GameManager>().updateSun(-canvas.GetComponent<canvas>().getPlantCost(plantid));
                     button[plantid].interactable = false;
-                    Sprite img = canvas.GetComponent<canvas>().panelChargeButtonImage[plantid];
+                    Sprite img = canvas.GetComponent<canvas>().getPanelChargeButtonImage(plantid);
                     button[plantid].GetComponent<Image>().sprite = img;
                     plantid = -1;
                     seedClicked = false;

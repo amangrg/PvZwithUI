@@ -36,7 +36,7 @@ public class RegularZombie : MonoBehaviour
         }
         if (frozen)
         {
-            GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,1f,1f);
+            GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1f);
             speed = 0.1f;                        // Sets less speed for zombie, if it is hit by Frozen Pea
             if (freezeTimer < 5f)
             {
@@ -147,14 +147,4 @@ public class RegularZombie : MonoBehaviour
 
     }
 
-<<<<<<< HEAD
-    //   Function: GetProgress() gets Zombie Kill Count and Initial Count of Zombies to get Progress of Level
-    public float GetProgress()
-    {
-        float temp = GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount();
-        return (temp / GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount());
-    }
-
-=======
->>>>>>> 0c8705dfa69626ff874374dfdb360096df8ec75a
 }

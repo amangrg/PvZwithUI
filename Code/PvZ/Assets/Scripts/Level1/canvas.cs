@@ -11,18 +11,34 @@ Canvas class displays the panel and its elements, transition UIs, dialog boxes
 public class canvas : MonoBehaviour
 {
     [SerializeField]
-    public Text SuncountT;
-    public GameObject userEvent;
-    public int[] plantCosts;
+    private Text SuncountT;
+
+    [SerializeField]
+    private GameObject userEvent;
+
+    [SerializeField]
+    private int[] plantCosts;
 
     [HideInInspector]
-    public bool HugeWave = false;
-    public GameObject HugeWaveUI = null;
-    public bool[] checkButtonCoolTime;
-    public float[] timeToWait;
-    public float[] currentWaitTime;
-    public Sprite[] panelChargeButtonImage;
-    public Sprite[] panelImage;
+    private bool HugeWave = false;
+
+    [SerializeField]
+    private GameObject HugeWaveUI;
+
+    [SerializeField]
+    private bool[] checkButtonCoolTime;
+
+    [SerializeField]
+    private float[] timeToWait;
+
+    [SerializeField]
+    private float[] currentWaitTime;
+
+    [SerializeField]
+    private Sprite[] panelChargeButtonImage;
+
+    [SerializeField]
+    private Sprite[] panelImage;
     private float WaveTimer = 0f;
     private int currentLevel;
 
@@ -41,11 +57,13 @@ public class canvas : MonoBehaviour
     */
     void Start()
     {
+       
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("Current Level", currentLevel);
         PlayerPrefs.Save();
-
+       
         updateSunCount(0);
+     
         for (int i = 0; i < plantCosts.Length; ++i)
         {
             checkButtonCoolTime[i] = false;
@@ -63,7 +81,6 @@ public class canvas : MonoBehaviour
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
         if (HugeWave)
         {
-            Debug.Log("huge wave");
             HugeWaveUI.SetActive(HugeWave);
             if (WaveTimer < 2f)
             {
@@ -152,5 +169,27 @@ public class canvas : MonoBehaviour
     public void updateSunCount(int SunCost)
     {
         SuncountT.text = SunCost.ToString();
+    }
+
+
+    public void Huge_Wave(bool status)
+    {
+        HugeWave = status;
+
+    }
+
+    public void setCoolTime(int id)
+    {
+        checkButtonCoolTime[id] = true;
+    }
+
+    public int getPlantCost(int id)
+    {
+        return plantCosts[id];
+    }
+
+    public Sprite getPanelChargeButtonImage(int id)
+    {
+        return panelChargeButtonImage[id];
     }
 }

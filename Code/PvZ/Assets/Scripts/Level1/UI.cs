@@ -7,17 +7,24 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
 
-    public bool GameOver = false;
-    public bool Level_Complete = false;
-    public static bool GamePaused = false;
-    public bool GameQuitDialog = false;
-    public bool GameMenuDialog = false;
-    public Slider slider;
-    public GameObject PauseMenu = null;
-    public GameObject GameOverUI = null;
-    public GameObject LevelCompleteUI = null;
-    public GameObject GameQuitDialogBox = null;
-    public GameObject GameMenuDialogBox = null;
+    private bool GameOver = false;
+    private bool Level_Complete = false;
+    private static bool GamePaused = false;
+    private bool GameQuitDialog = false;
+    private bool GameMenuDialog = false;
+    [SerializeField]
+    private Slider slider;
+
+    [SerializeField]
+    private GameObject PauseMenu = null;
+    [SerializeField]
+    private GameObject GameOverUI = null;
+    [SerializeField]
+    private GameObject LevelCompleteUI = null;
+    [SerializeField]
+    private GameObject GameQuitDialogBox = null;
+    [SerializeField]
+    private GameObject GameMenuDialogBox = null;
     //Start is called before the first frame update
     void Start()
     {
@@ -71,9 +78,10 @@ public class UI : MonoBehaviour
         LevelCompleteUI.SetActive(true);
     }
 
-    public void fillbar(float value)
+    public void fillbar(float val)
     {
-        slider.value = value;
+        slider.value = val;
+       
     }
     /*
     resume function will first disable the dialog boxes 
@@ -157,5 +165,14 @@ public class UI : MonoBehaviour
         GamePaused = true;
     }
 
+    public void Game_Over(bool status)
+    {
+        GameOver = status;
+    }
+
+    public void LevelComplete(bool status)
+    {
+        Level_Complete = status;
+    }
 
 }

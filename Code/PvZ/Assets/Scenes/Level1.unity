@@ -315,7 +315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.82900006}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -50.830017, y: 11.200012}
+  m_AnchoredPosition: {x: -50.830017, y: 11.200043}
   m_SizeDelta: {x: -101.67, y: -22.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14965671
@@ -3387,7 +3387,6 @@ MonoBehaviour:
   SuncountT: {fileID: 1104467360}
   userEvent: {fileID: 1749176547}
   plantCosts: 3200000064000000
-  HugeWave: 0
   HugeWaveUI: {fileID: 1536507811}
   checkButtonCoolTime: 0000
   timeToWait:
@@ -3414,10 +3413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db2bda6742c50044b1237dbec783b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOver: 0
-  Level_Complete: 0
-  GameQuitDialog: 0
-  GameMenuDialog: 0
   slider: {fileID: 808803694}
   PauseMenu: {fileID: 467539894}
   GameOverUI: {fileID: 696043083}

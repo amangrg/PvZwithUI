@@ -33,18 +33,17 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        UI.GetComponent<UI>().GameOver = true;
+        UI.GetComponent<UI>().Game_Over(true);
     }
 
     public void Level_Complete()
     {
-        UI.GetComponent<UI>().Level_Complete = true;
+        UI.GetComponent<UI>().LevelComplete(true);
     }
 
     public void HugeWave(bool wave)
     {
-        Debug.Log("wave");
-        canvas.GetComponent<canvas>().HugeWave = wave;
+        canvas.GetComponent<canvas>().Huge_Wave(wave);
     }
 
 
@@ -54,7 +53,8 @@ public class GameManager : MonoBehaviour
     public void killed()
     {
         Kill_Count++;
-        UI.GetComponent<UI>().fillbar((float)Kill_Count/Initial_Zombie_Count);
+        float temp = (float)Kill_Count / Initial_Zombie_Count;
+        UI.GetComponent<UI>().fillbar(temp);
     }
 
     public int getInitialCount()
@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
     
     public int getKillCount()
     {
-        Debug.Log(Kill_Count);
         return Kill_Count;
     }
     public int getZombieCount()
