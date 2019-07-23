@@ -10,17 +10,17 @@ public class UserEvent : MonoBehaviour
     private bool seedClicked = false;
 
     [SerializeField]
-    private GameObject plantTemp;
+    private GameObject plantTemp = null;
     [SerializeField]
-    private GameObject gm;
+    private GameObject gm = null;
     [SerializeField]
-    private GameObject[] Plants;
+    private GameObject[] Plants = null;
     [SerializeField]
     private Button[] button;
     [SerializeField]
-    private Sprite[] plantSprites;
+    private Sprite[] plantSprites = null;
     [SerializeField]
-    private GameObject canvas;
+    private GameObject canvas = null;
 
     //set button interactable false initially and set button ids
     void Start()
