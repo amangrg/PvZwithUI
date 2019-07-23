@@ -35,8 +35,8 @@ public class Spawner : MonoBehaviour
 
     private void spawnZombies()
     {
-        //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
-        if (gameManager.GetComponent<GameManager>().getZombieCount() < levelzombies)
+        
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > levelzombies)
         {
             Debug.Log(gameManager.GetComponent<GameManager>().getZombieCount());
 
@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
     {
         while (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
         {
-            //Debug.Log("No of Zombies Spawned");
+            
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
             Zombies[spawn],
@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
             Quaternion.identity,
             transform
             );
-            //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
+          
             gameManager.GetComponent<GameManager>().updateZombieCount();
             
         }

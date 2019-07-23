@@ -32,22 +32,21 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        //     UI.GetComponent<UI>().GameOver = true;
+        canvas.GetComponent<canvas>().GameOver = true;
 
-        Debug.Log("Game over!");
+//        Debug.Log("Game over!");
     }
 
     public void Level_Complete()
     {
-        Debug.Log("Won");
-        //  UI.GetComponent<UI>().Level_Complete = true;
-
+//        Debug.Log("Won");
+          canvas.GetComponent<canvas>().Level_Complete = true;
     }
 
     public void HugeWave(bool wave)
     {
-        Debug.Log(wave);
-      //  canvas.GetComponent<canvas>().HugeWave = wave;
+//      Debug.Log(wave);
+        canvas.GetComponent<canvas>().HugeWave = wave;
     }
 
     public void killed()
