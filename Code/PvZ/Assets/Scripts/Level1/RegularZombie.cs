@@ -10,7 +10,6 @@ public class RegularZombie : MonoBehaviour
     protected bool walk = true;
     [SerializeField]
     protected GameObject Smoke;
-
     protected bool frozen = false;
     protected float freezeTimer = 0f;
     protected float speed = 0f;
@@ -115,9 +114,8 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            GameObject.Find("GameManager").GetComponent<GameManager>().killed();                               
-            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress(); 
 
+            GameObject.Find("GameManager").GetComponent<GameManager>().killed();
             if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
                 GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
 
@@ -149,6 +147,7 @@ public class RegularZombie : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
     //   Function: GetProgress() gets Zombie Kill Count and Initial Count of Zombies to get Progress of Level
     public float GetProgress()
     {
@@ -156,4 +155,6 @@ public class RegularZombie : MonoBehaviour
         return (temp / GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount());
     }
 
+=======
+>>>>>>> 0c8705dfa69626ff874374dfdb360096df8ec75a
 }

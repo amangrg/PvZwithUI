@@ -12,7 +12,11 @@ public class Spawner : MonoBehaviour
     private GameObject setWorld = null;
     [SerializeField]
     private GameObject gameManager = null;
-    private int levelzombies =6;
+    [SerializeField]
+    private int levelzombies;
+    [SerializeField]
+    private int hordezombies;
+
     //public int hordeZombies;  //later if we want to spawn multiple hordes of zombies(not 1).
 
     // Start is called before the first frame update
@@ -35,9 +39,10 @@ public class Spawner : MonoBehaviour
 
     private void spawnZombies()
     {
-        //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
-        if (gameManager.GetComponent<GameManager>().getZombieCount() > levelzombies)
-        {
+
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
+     
+ {
             Debug.Log(gameManager.GetComponent<GameManager>().getZombieCount());
 
             int spawn = Random.Range(0, (Zombies.Length));
@@ -53,6 +58,7 @@ public class Spawner : MonoBehaviour
         }
         if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies)
         {
+            Debug.Log("level zombies");
             gameManager.GetComponent<GameManager>().HugeWave(true);
             spawnHorde();
         }
@@ -62,7 +68,7 @@ public class Spawner : MonoBehaviour
     {
         while (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
         {
-            //Debug.Log("No of Zombies Spawned");
+            
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
             Zombies[spawn],
@@ -70,7 +76,7 @@ public class Spawner : MonoBehaviour
             Quaternion.identity,
             transform
             );
-            //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
+          
             gameManager.GetComponent<GameManager>().updateZombieCount();
             
         }

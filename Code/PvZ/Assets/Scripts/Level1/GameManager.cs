@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject canvas = null;
+    public GameObject canvas = null;
     [SerializeField]
-    private GameObject UI = null;
+    public GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
     private int TotalSun = 500;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public void updateSun(int Suncount)
     {
         TotalSun += Suncount;
+        canvas.GetComponent<canvas>().updateSunCount(TotalSun);
         for (int i = 0; i < userEvent.GetComponent<UserEvent>().button.Length; ++i)
         {
             canvas.GetComponent<canvas>().checkButtonActive();
@@ -32,22 +33,18 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        //     UI.GetComponent<UI>().GameOver = true;
-
-        Debug.Log("Game over!");
+        UI.GetComponent<UI>().GameOver = true;
     }
 
     public void Level_Complete()
     {
-        Debug.Log("Won");
-        //  UI.GetComponent<UI>().Level_Complete = true;
-
+        UI.GetComponent<UI>().Level_Complete = true;
     }
 
     public void HugeWave(bool wave)
     {
-        Debug.Log(wave);
-      //  canvas.GetComponent<canvas>().HugeWave = wave;
+        Debug.Log("wave");
+        canvas.GetComponent<canvas>().HugeWave = wave;
     }
 
 
@@ -57,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void killed()
     {
         Kill_Count++;
+        UI.GetComponent<UI>().fillbar((float)Kill_Count/Initial_Zombie_Count);
     }
 
     public int getInitialCount()
@@ -66,6 +64,7 @@ public class GameManager : MonoBehaviour
     
     public int getKillCount()
     {
+        Debug.Log(Kill_Count);
         return Kill_Count;
     }
     public int getZombieCount()
