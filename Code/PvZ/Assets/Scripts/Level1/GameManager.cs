@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
       //  canvas.GetComponent<canvas>().HugeWave = wave;
     }
 
+
+    /*Function: killed() increments the Zombie kill count 
+       Usage: Called in OnTriggerEnter2D() function of Regular Zombie class
+      */
     public void killed()
     {
         Kill_Count++;
@@ -68,6 +72,10 @@ public class GameManager : MonoBehaviour
     {
         return Zombie_Count;
     }
+
+    /*Function: updateZombieCount() decrements the total Zombie count on spawning a zombie
+       Usage: Called in Spawner class
+      */
     public void updateZombieCount()
     {
         Zombie_Count--;

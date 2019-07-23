@@ -27,17 +27,18 @@ public class SetWorld : MonoBehaviour
         invisibleWall();
     }
 
-    /*
-        Function: invisibleWall() function creates a boundary for game lost condition detection.
-        Parameters: It takes no parameters.
-        Usage: It is called in Start() function which will be called at the beginning when user plays game.
-    */
 
     public float getGameOver()
     {
         return game_over_line;
     }
 
+    
+    /*
+      Function: invisibleWall() function creates a boundary for game lost condition detection.
+      Parameters: It takes no parameters.
+      Usage: It is called in Start() function which will be called at the beginning when user plays game.
+  */
     private void invisibleWall()
     {
         GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f, 3f),
@@ -50,6 +51,8 @@ public class SetWorld : MonoBehaviour
     {
         return lanePositions[Random.Range(0, 5)];
     }
+
+
     /*
         Function: generateLawn() function creates a 5x9 using tile object. It also assigns lane positions to each row.
         Parameters: It takes no parameters.

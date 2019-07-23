@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RegularZombie : MonoBehaviour
 {
     protected float TimeInterval = 1f;
@@ -37,7 +38,7 @@ public class RegularZombie : MonoBehaviour
         if (frozen)
         {
             GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,1f,1f);
-            speed = 0.1f;
+            speed = 0.1f;                        // Sets less speed for zombie, if it is hit by Frozen Pea
             if (freezeTimer < 5f)
             {
                 freezeTimer += Time.deltaTime;
@@ -46,7 +47,7 @@ public class RegularZombie : MonoBehaviour
             {
                 freezeTimer = 0f;
                 frozen = false;
-                speed = 0.5f;
+                speed = 0.3f;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
@@ -59,11 +60,22 @@ public class RegularZombie : MonoBehaviour
             walk = true;
     }
 
+
+    /*
+       Function: updateHealth() function decrements health of Zombie.
+       Parameters: It takes no parameters.
+       Usage: Called on collision with Pea.
+   */
     protected void updateHealth()
     {
         health--;
     }
 
+    /*
+       Function: zombieWalk() gives translation speed to Zombies. It also checks if zombie has crossed the game over line and calls Game Over Function.
+       Parameters: It takes no parameters.
+       Usage: Called on collision with Pea in OnTriggerEnter2D() of Zombie.
+   */
     protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
@@ -73,6 +85,12 @@ public class RegularZombie : MonoBehaviour
         }
     }
 
+
+    /*
+       Function: OnTriggerEnter2D() detects type of Pea, updates Health of Zombie according to pea type,and destroys Zombie
+       Parameters: Takes inbuilt Collider object
+       Usage: It is MonoBehaviour function called directly by Unity on collisions.
+   */
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "peaBullet")
@@ -97,8 +115,8 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            GameObject.Find("GameManager").GetComponent<GameManager>().killed();
-            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress(); /**/
+            GameObject.Find("GameManager").GetComponent<GameManager>().killed();                               
+            GameObject.Find("Canvas").GetComponent<canvas>().progressBar.value = GetProgress(); 
 
             if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
                 GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
@@ -107,6 +125,10 @@ public class RegularZombie : MonoBehaviour
         }
     }
 
+    /*
+      Function: checkPath()- Checks if Zombie & plant are in vicinty, and decrements plant health 
+      Usage: Called in Update() of Zombies
+  */
     protected bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);
@@ -127,6 +149,7 @@ public class RegularZombie : MonoBehaviour
 
     }
 
+    //   Function: GetProgress() gets Zombie Kill Count and Initial Count of Zombies to get Progress of Level
     public float GetProgress()
     {
         float temp = GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount();
