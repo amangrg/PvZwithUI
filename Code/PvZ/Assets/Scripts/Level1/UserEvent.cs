@@ -87,7 +87,7 @@ public class UserEvent : MonoBehaviour
             }
             if (hit.transform.gameObject.tag == "sun")
             {
-               gm.GetComponent<GameManager>().updateSun(SunCost);
+                gm.GetComponent<GameManager>().updateSun(SunCost);
                 Destroy(hit.transform.gameObject);
             }
           }

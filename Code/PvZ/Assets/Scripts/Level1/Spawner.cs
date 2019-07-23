@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
     private void spawnZombies()
     {
         //Debug.Log(gameManager.GetComponent<GameManager>().Zombie_Count);
-        if (gameManager.GetComponent<GameManager>().getZombieCount() < levelzombies)
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > levelzombies)
         {
             Debug.Log(gameManager.GetComponent<GameManager>().getZombieCount());
 
