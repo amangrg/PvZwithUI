@@ -63,6 +63,7 @@ public class canvas : MonoBehaviour
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
         if (HugeWave)
         {
+            Debug.Log("huge wave");
             HugeWaveUI.SetActive(HugeWave);
             if (WaveTimer < 2f)
             {

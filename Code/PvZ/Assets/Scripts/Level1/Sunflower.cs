@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*This class gives health to a sunflower that is created, and spawns sun*/
+
 public class Sunflower : Plant
 {
     private float TimeInterval = 4f;
@@ -11,7 +14,7 @@ public class Sunflower : Plant
 
     void Start()
     {
-        health = 3;
+        health = 3;                         //assigns initial health to the sunflower
     }
 
     void Update()
@@ -20,9 +23,15 @@ public class Sunflower : Plant
         if (timer >= TimeInterval)
         {
             timer = 0f;
-            spawnSunfSun();
+            spawnSunfSun();                    
         }
     }
+
+    /*
+        Function: spawnSunfSun() function creates a sun object for every sunflower after certain time interval, and destroys after a while if not clicked
+        Usage: called in Update() function
+    */
+
 
     private void spawnSunfSun()
     {

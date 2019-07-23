@@ -3603,6 +3603,8 @@ MonoBehaviour:
   - {fileID: 5626896817387246277, guid: 2f95d8740790c124ab09f84eabd9e937, type: 3}
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
+  levelzombies: 6
+  hordezombies: 4
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

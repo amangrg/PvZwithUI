@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void HugeWave(bool wave)
     {
-        Debug.Log(wave);
+        Debug.Log("wave");
         canvas.GetComponent<canvas>().HugeWave = wave;
     }
 
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     
     public int getKillCount()
     {
+        Debug.Log(Kill_Count);
         return Kill_Count;
     }
     public int getZombieCount()
