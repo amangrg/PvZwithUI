@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         TotalSun += Suncount;
         canvas.GetComponent<canvas>().updateSunCount(TotalSun);
-        for (int i = 0; i < userEvent.GetComponent<UserEvent>().button.Length; ++i)
+        for (int i = 0; i < userEvent.GetComponent<UserEvent>().getLength(); ++i)
         {
             canvas.GetComponent<canvas>().checkButtonActive();
         }

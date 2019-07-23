@@ -8,12 +8,19 @@ public class UserEvent : MonoBehaviour
     int plantid = -1;
     private int SunCost = 25;
     private bool seedClicked = false;
-    public GameObject plantTemp;
-    public GameObject gm;
-    public GameObject[] Plants;
-    public Button[] button;
-    public Sprite[] plantSprites;
-    public GameObject canvas;
+
+    [SerializeField]
+    private GameObject plantTemp;
+    [SerializeField]
+    private GameObject gm;
+    [SerializeField]
+    private GameObject[] Plants;
+    [SerializeField]
+    private Button[] button;
+    [SerializeField]
+    private Sprite[] plantSprites;
+    [SerializeField]
+    private GameObject canvas;
 
     //set button interactable false initially and set button ids
     void Start()
@@ -95,29 +102,9 @@ public class UserEvent : MonoBehaviour
 
     private void drag()
     {
-        /*Ray ray;
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform.gameObject.tag == "tile")
-            {
-                Debug.Log("Ray hit tile");
-                plantTemp.transform.position = new Vector3(
-                hit.transform.position.x,
-                hit.transform.position.y + 0.2f,
-                0
-                );
-            }
-        }
-        else */               //For Snapping on the tiles or to make it free
-        {
-            plantTemp.transform.position = new Vector3(
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).y + 0.2f,
-            0
-            );
-        }
+         plantTemp.transform.position = new Vector3(
+         Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+         Camera.main.ScreenToWorldPoint(Input.mousePosition).y + 0.2f, 0);
     }
 
     private void plantSpriteMng()
@@ -134,4 +121,16 @@ public class UserEvent : MonoBehaviour
 
     }
 
+    public void setButton(int id, bool val)
+    {
+        button[id].interactable = val;
+    }
+    public int getLength()
+    {
+        return button.Length;
+    }
+    public Button getButton(int id)
+    {
+        return button[id];
+    }
 }

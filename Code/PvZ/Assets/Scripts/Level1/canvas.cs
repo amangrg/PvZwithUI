@@ -113,7 +113,7 @@ public class canvas : MonoBehaviour
                 if ((float)Math.Ceiling(currentWaitTime[i]) != timeToWait[i])
                 {
                     currentWaitTime[i] += Time.deltaTime;
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                    userEvent.GetComponent<UserEvent>().setButton(i,false);
                 }
                 else
                 {
@@ -142,24 +142,23 @@ public class canvas : MonoBehaviour
             {
                 if ((plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text)))
                 {
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = true;
+                    userEvent.GetComponent<UserEvent>().setButton(i,true);
                 }
                 else
                 {
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                    userEvent.GetComponent<UserEvent>().setButton(i,false);
                 }
                 checkButtonCoolTime[i] = false;
-                Button btn = userEvent.GetComponent<UserEvent>().button[i];
+                Button btn = userEvent.GetComponent<UserEvent>().getButton(i);
                 Sprite img = panelImage[i];
                 btn.GetComponent<Image>().sprite = img;
             }
             else
             {
-                userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                userEvent.GetComponent<UserEvent>().setButton(i,false);
             }
         }
     }
-
 
     /*
     updateSunCount function takes SunCost as argument
