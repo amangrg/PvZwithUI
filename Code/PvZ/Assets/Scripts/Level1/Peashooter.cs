@@ -36,7 +36,7 @@ public class Peashooter : Plant
 
     private void shootPea()
     {
-        GameObject pea = (GameObject)Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
+        Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
     }
 
 

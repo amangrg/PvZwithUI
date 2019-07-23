@@ -56,7 +56,6 @@ public class Spawner : MonoBehaviour
         }
         if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies)
         {
-            Debug.Log("level zombies");
             gameManager.GetComponent<GameManager>().HugeWave(true);
             spawnHorde();
         }

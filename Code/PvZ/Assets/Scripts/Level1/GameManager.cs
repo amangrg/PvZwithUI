@@ -10,10 +10,9 @@ public class GameManager : MonoBehaviour
     public GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
-    private int TotalSun = 500;
+    private int TotalSun = 0;
     private int Zombie_Count = 10;
     private int Initial_Zombie_Count = 10;
-    //[HideInInspector]
     private int Kill_Count = 0;
 
     void Update()

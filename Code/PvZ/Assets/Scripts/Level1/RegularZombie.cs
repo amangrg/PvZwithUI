@@ -132,7 +132,6 @@ public class RegularZombie : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);
         if (hit)
         {
-            //Debug.Log("In checkpath");
             timer += Time.deltaTime;
             if (timer >= TimeInterval)
             {
