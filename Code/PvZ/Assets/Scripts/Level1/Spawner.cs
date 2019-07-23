@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     private GameObject setWorld = null;
     [SerializeField]
     private GameObject gameManager = null;
-    private int levelzombies =5;
+    private int levelzombies =6;
     //public int hordeZombies;  //later if we want to spawn multiple hordes of zombies(not 1).
 
     // Start is called before the first frame update
