@@ -57,8 +57,15 @@ public class UserEvent : MonoBehaviour
     }
     private void onButtonClick(int id)
     {
-        plantid = id;
-        seedClicked = true;
+        if(id < button.Length)
+        {
+            plantid = id;
+            seedClicked = true;
+        }
+        else
+        {
+            Debug.Log("Invalid id");
+        }
     }
 
     private void trashEvent()
@@ -134,7 +141,15 @@ public class UserEvent : MonoBehaviour
         return button.Length;
     }
     public Button getButton(int id)
-    {
-        return button[id];
+    {   if(id < button.Length)
+        {
+            return button[id];
+        }
+        else
+        {
+            Debug.Log("Invalid button ID");
+            return null;
+        }
+
     }
 }

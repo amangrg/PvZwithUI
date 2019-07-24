@@ -25,7 +25,12 @@ public class Tile : MonoBehaviour
 
     //plant function will place  plant on that tile if there is no plant on that tile
     public bool plant(GameObject p)
-    {
+
+    {   
+        if(p == null)
+        {
+            Debug.Log("Null plant object");
+        }
         if (!has_plant)
         {
             Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.2f, 0), Quaternion.identity);
