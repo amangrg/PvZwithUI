@@ -22,6 +22,9 @@ public class UserEvent : MonoBehaviour
     [SerializeField]
     private GameObject canvas = null;
 
+    [SerializeField]
+    private Button trash = null;
+
     //set button interactable false initially and set button ids
     void Start()
     {
@@ -31,6 +34,8 @@ public class UserEvent : MonoBehaviour
             button[index].GetComponent<Button>().onClick.AddListener(() => onButtonClick(index));
             button[index].interactable = false;
         }
+
+        trash.onClick.AddListener(delegate { trashEvent();});
     }
 
     void Update()
@@ -38,7 +43,6 @@ public class UserEvent : MonoBehaviour
         if (Input.GetMouseButtonDown(0))             //Make a Event handler class for this function
         {
             mouseClicked();
-
         }
         if (seedClicked)
         {
@@ -51,13 +55,13 @@ public class UserEvent : MonoBehaviour
             drag();
         }
     }
-    public void onButtonClick(int id)
+    private void onButtonClick(int id)
     {
         plantid = id;
         seedClicked = true;
     }
 
-    public void trashEvent()
+    private void trashEvent()
     {
         plantid = -1;
         seedClicked = false;
