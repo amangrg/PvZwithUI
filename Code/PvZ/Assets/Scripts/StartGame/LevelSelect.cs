@@ -16,9 +16,6 @@ public class LevelSelect : MonoBehaviour
     private Button level2 = null;
 
     [SerializeField]
-    private Button level3 = null;
-
-    [SerializeField]
     private Button back = null;
 
 
@@ -31,16 +28,10 @@ public class LevelSelect : MonoBehaviour
         //Debug.Log(levelLocked);
         level1.onClick.AddListener(delegate { LevelOne(); });
         level2.onClick.AddListener(delegate { LevelTwo(); });
-        level3.onClick.AddListener(delegate { LevelThree(); });
         back.onClick.AddListener(delegate { BackButton(); });
         if (levelLocked == 3)
         {
             level2.interactable = false;
-            level3.interactable = false;
-        }
-        else if (levelLocked == 4)
-        {
-            level3.interactable = false;
         }
     }
 
@@ -57,11 +48,6 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
-    private void LevelThree()
-    {
-        //Debug.Log("LevelThree Loaded");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-    }
     private void BackButton()
     {
         //Debug.Log("Back button Pressed");

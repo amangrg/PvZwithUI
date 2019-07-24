@@ -844,8 +844,8 @@ MonoBehaviour:
   canvas: {fileID: 1195881279}
   UI: {fileID: 1195881279}
   userEvent: {fileID: 1749176547}
-  Zombie_Count: 10
-  Initial_Zombie_Count: 10
+  Zombie_Count: 15
+  Initial_Zombie_Count: 15
 --- !u!1 &364170006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,7 +3746,7 @@ MonoBehaviour:
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
   levelzombies: 8
-  hordezombies: 6
+  hordezombies: 7
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0

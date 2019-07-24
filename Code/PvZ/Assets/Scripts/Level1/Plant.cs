@@ -28,7 +28,7 @@ public class Plant : MonoBehaviour
         if(health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            GameObject.Find("Tile").GetComponent<Tile>().Setplant(true);
+            GameObject.Find("Tile").GetComponent<Tile>().Setplant(false);
             Destroy(gameObject);
             if(!Smoke)
             {
