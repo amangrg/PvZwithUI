@@ -717,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
   audiosource: {fileID: 1419327031143006289}
-  collidesound: {fileID: 8300000, guid: 0b94607515bb4dc43b2c9cc6a529b83c, type: 3}
+  collidesound: {fileID: 8300000, guid: 06f83cd698aef32498796450b9696f04, type: 3}
   deathsound: {fileID: 8300000, guid: 2650d7f0d9790d740b7f7950d10b2ff6, type: 3}
 --- !u!95 &9155592110766992554
 Animator:

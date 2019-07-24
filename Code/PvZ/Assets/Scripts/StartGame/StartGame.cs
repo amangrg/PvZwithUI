@@ -20,13 +20,20 @@ public class StartGame : MonoBehaviour
     private Button credits = null;
     [SerializeField]
     private Button levels = null;
+    [SerializeField]
+    private Button help = null;
+    [SerializeField]
+    private GameObject helpScreen = null;
+    [SerializeField]
+    private Button back = null;
 
-    
+
     //resume.GetComponent<Button>().onClick.AddListener(() => onButtonClick(index));
 
     //Start Function is called at the start of the game always,it is used to initialize methods and variables needed at the start.
     void Start()
     {
+        helpScreen.SetActive(false);
         resumeLevel = PlayerPrefs.GetInt("Current Level");         //Getting the Current Level which the user was on
         if(resumeLevel == 0)
         {
@@ -38,6 +45,8 @@ public class StartGame : MonoBehaviour
         quit.onClick.AddListener(delegate { QuitButton(); });
         credits.onClick.AddListener(delegate { CreditsButton(); });
         levels.onClick.AddListener(delegate { LevelSelect(); });
+        help.onClick.AddListener(delegate { HelpScreen(); });
+        back.onClick.AddListener(delegate { Back(); });
     }
 
     //Resume the last played level
@@ -73,5 +82,15 @@ public class StartGame : MonoBehaviour
     private void LevelSelect()
     {
         SceneManager.LoadScene(2);
+    }
+
+    private void HelpScreen()
+    {
+        helpScreen.SetActive(true);
+    }
+
+    private void Back()
+    {
+        helpScreen.SetActive(false);
     }
 }
