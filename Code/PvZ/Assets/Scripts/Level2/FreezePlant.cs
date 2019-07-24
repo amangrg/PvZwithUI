@@ -36,7 +36,7 @@ public class FreezePlant : Plant
     //checkpath function checks if zombie is there in straight line from the plant using Raycast function provided by unity
     private bool checkPath()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 18f, 1 << 8);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 7f - transform.position.x, 1 << 8);
         if (hit)
         {
             return hit;

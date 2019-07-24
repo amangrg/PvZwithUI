@@ -160,7 +160,7 @@ public class canvas : MonoBehaviour
     public void Huge_Wave()
     {
         HugeWaveUI.SetActive(true);
-        waiter();   
+        StartCoroutine(waiter());   
     }
 
     public void setCoolTime(int id)

@@ -24,6 +24,32 @@ public class UI : MonoBehaviour
     private GameObject GameQuitDialogBox = null;
     [SerializeField]
     private GameObject GameMenuDialogBox = null;
+    [SerializeField]
+    private Button quit = null;
+    [SerializeField]
+    private Button quitConfirm = null;
+    [SerializeField]
+    private Button menu = null;
+    [SerializeField]
+    private Button menuConfirm = null;
+    [SerializeField]
+    private Button nextLevel = null;
+    [SerializeField]
+    private Button resume = null;
+    [SerializeField]
+    private Button restart = null;
+    [SerializeField]
+    private Button gameOverRestart = null;
+    [SerializeField]
+    private Button gameOverQuit = null;
+    [SerializeField]
+    private Button gameOverMenu = null;
+    [SerializeField]
+    private Button gameWonQuit = null;
+    [SerializeField]
+    private Button gameQuitDialogBoxNo = null;
+    [SerializeField]
+    private Button gameMenuDialogBoxNo = null;
 
     private static bool GamePaused = false;
     //Start is called before the first frame update
@@ -34,6 +60,19 @@ public class UI : MonoBehaviour
         LevelCompleteUI.SetActive(false);
         GameQuitDialogBox.SetActive(false);
         GameMenuDialogBox.SetActive(false);
+        quit.onClick.AddListener(delegate { Quit(); });
+        quitConfirm.onClick.AddListener(delegate { QuitConfirm(); });
+        menu.onClick.AddListener(delegate { Menu(); });
+        menuConfirm.onClick.AddListener(delegate { MenuConfirm(); });
+        nextLevel.onClick.AddListener(delegate { nextLevelScene(); });
+        resume.onClick.AddListener(delegate { Resume(); });
+        restart.onClick.AddListener(delegate { Restart(); });
+        gameOverRestart.onClick.AddListener(delegate { Restart(); });
+        gameOverQuit.onClick.AddListener(delegate { Quit(); });
+        gameOverMenu.onClick.AddListener(delegate { Menu(); });
+        gameWonQuit.onClick.AddListener(delegate { Quit(); });
+        gameQuitDialogBoxNo.onClick.AddListener(delegate { Resume(); });
+        gameMenuDialogBoxNo.onClick.AddListener(delegate { Resume(); });
     }
 
     // Update is called once per frame
