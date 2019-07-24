@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
 
-    private bool GameOver = false;
-    private bool Level_Complete = false;
-    private static bool GamePaused = false;
-    private bool GameQuitDialog = false;
-    private bool GameMenuDialog = false;
+    //private bool GameOver = false;
+    //private bool Level_Complete = false;
+    //private bool GameQuitDialog = false;
+    //private bool GameMenuDialog = false;
     [SerializeField]
     private Slider slider;
 
@@ -25,6 +24,8 @@ public class UI : MonoBehaviour
     private GameObject GameQuitDialogBox = null;
     [SerializeField]
     private GameObject GameMenuDialogBox = null;
+
+    private static bool GamePaused = false;
     //Start is called before the first frame update
     void Start()
     {
@@ -48,23 +49,6 @@ public class UI : MonoBehaviour
             {
                 Paused();
             }
-        }
-        if (GameOver)
-        {
-            Time.timeScale = 0f;
-            GameOverUI.SetActive(true);
-        }
-        if (Level_Complete)
-        {
-            StartCoroutine(waiter());
-        }
-        if (GameQuitDialog)
-        {
-            GameQuitDialogBox.SetActive(true);
-        }
-        if (GameMenuDialog)
-        {
-            GameMenuDialogBox.SetActive(true);
         }
     }
 
@@ -90,9 +74,7 @@ public class UI : MonoBehaviour
 
     public void Resume()
     {
-        GameQuitDialog = false;
-        GameQuitDialogBox.SetActive(false);
-        GameMenuDialog = false;
+        GameQuitDialogBox.SetActive(false);    
         GameMenuDialogBox.SetActive(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -106,7 +88,7 @@ public class UI : MonoBehaviour
     */
     public void Quit()
     {
-        GameQuitDialog = true;
+        GameQuitDialogBox.SetActive(true);
     }
 
     /*
@@ -123,7 +105,7 @@ public class UI : MonoBehaviour
     */
     public void Menu()
     {
-        GameMenuDialog = true;
+        GameMenuDialogBox.SetActive(true);
     }
     /*
     Menu Confirm function will be invoked on dialog box confirmation and 
@@ -152,7 +134,7 @@ public class UI : MonoBehaviour
     public void nextLevelScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Level_Complete = false;
+        LevelCompleteUI.SetActive(false);
     }
 
     /*
@@ -165,14 +147,15 @@ public class UI : MonoBehaviour
         GamePaused = true;
     }
 
-    public void Game_Over(bool status)
+    public void Game_Over()
     {
-        GameOver = status;
+        Time.timeScale = 0f;
+        GameOverUI.SetActive(true);
     }
 
-    public void LevelComplete(bool status)
+    public void LevelComplete()
     {
-        Level_Complete = status;
+        StartCoroutine(waiter());
     }
 
 }

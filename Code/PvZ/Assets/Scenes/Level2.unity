@@ -3807,7 +3807,7 @@ MonoBehaviour:
   - {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab, type: 3}
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
-  levelzombies: 10
+  levelzombies: 6
   hordezombies: 4
 --- !u!4 &1273996609
 Transform:

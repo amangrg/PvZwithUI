@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject userEvent = null;
     private int TotalSun = 0;
+    [SerializeField]
     private int Zombie_Count = 10;
+    [SerializeField]
     private int Initial_Zombie_Count = 10;
     private int Kill_Count = 0;
 
@@ -32,12 +34,12 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        UI.GetComponent<UI>().Game_Over(true);
+        UI.GetComponent<UI>().Game_Over();
     }
 
     public void Level_Complete()
     {
-        UI.GetComponent<UI>().LevelComplete(true);
+        UI.GetComponent<UI>().LevelComplete();
     }
 
     public void HugeWave(bool wave)
