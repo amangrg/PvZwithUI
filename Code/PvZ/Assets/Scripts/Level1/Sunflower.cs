@@ -8,14 +8,14 @@ using UnityEngine;
 
 public class Sunflower : Plant
 {
-    private float TimeInterval = 4f;
+    private float TimeInterval = 20f;
     [SerializeField]
     private GameObject Sun = null;
     private float timer = 0f;
 
     void Start()
     {
-        health = 3;                         //assigns initial health to the sunflower
+        health = 6;                         //assigns initial health to the sunflower
     }
 
     //calls spawnsunfsun on sunflower at regular interval set by timer.

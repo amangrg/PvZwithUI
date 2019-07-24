@@ -53,6 +53,10 @@ public class UI : MonoBehaviour
 
     private static bool GamePaused = false;
     //Start is called before the first frame update
+    /*
+     * Start() function disables all the transition UI screens &
+     * sets all the buttons with it's functionalities.
+    */
     void Start()
     {
         PauseMenu.SetActive(false);

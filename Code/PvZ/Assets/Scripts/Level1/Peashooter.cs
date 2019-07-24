@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Peashooter : Plant
 {
-    private float TimeInterval = 1f;
+    private float TimeInterval = 2f;
     [SerializeField]
     private GameObject Pea = null;
     private float timer = 0f;

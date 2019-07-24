@@ -28,8 +28,8 @@ public class RegularZombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.3f;
-        health = 5;
+        speed = 0.2f;
+        health = 10;
     }
 
     // Update is called once per frame

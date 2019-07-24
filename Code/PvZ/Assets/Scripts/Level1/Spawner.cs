@@ -22,8 +22,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnSun", 1f, 8f);
-        InvokeRepeating("spawnZombies", 5f, 5f);
+        InvokeRepeating("spawnSun", 1f, 6f);
+        InvokeRepeating("spawnZombies", 10f, 12f);
     }
    
     private void spawnSun()                                                      //generates sun at some interval but at random positions on backyard         
