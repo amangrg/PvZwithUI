@@ -744,6 +744,8 @@ MonoBehaviour:
   canvas: {fileID: 1195881279}
   UI: {fileID: 1195881279}
   userEvent: {fileID: 1749176547}
+  Zombie_Count: 10
+  Initial_Zombie_Count: 10
 --- !u!1 &364170006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,7 +2679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.1000061, y: 16}
+  m_AnchoredPosition: {x: 1.0999756, y: 16}
   m_SizeDelta: {x: -441.8, y: -250.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951563337
@@ -4630,6 +4632,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 013d135e64164da4890d48bdc9122a81, type: 3}
   - {fileID: 21300000, guid: 576db4d4f9b49484583d6a5a834ea145, type: 3}
   canvas: {fileID: 1195881279}
+  trash: {fileID: 1842023443}
 --- !u!1 &1772278516
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,12 +4966,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1749176549}
-        m_MethodName: trashEvent
+      - m_Target: {fileID: 1749176547}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

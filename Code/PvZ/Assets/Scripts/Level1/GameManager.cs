@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public GameObject canvas = null;
+    private GameObject canvas = null;
     [SerializeField]
-    public GameObject UI = null;
+    private GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
     private int TotalSun = 500;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         return Initial_Zombie_Count;
     }
-    
+
     public int getKillCount()
     {
         return Kill_Count;

@@ -72,7 +72,7 @@ public class UI : MonoBehaviour
     and then disable the pause menu UI
     */
 
-    public void Resume()
+    private void Resume()
     {
         GameQuitDialogBox.SetActive(false);    
         GameMenuDialogBox.SetActive(false);
@@ -86,7 +86,7 @@ public class UI : MonoBehaviour
     Quit function will be invoked on clicking on Quit button and
     it will open Quit dialog box for confirmation
     */
-    public void Quit()
+    private void Quit()
     {
         GameQuitDialogBox.SetActive(true);
     }
@@ -95,7 +95,7 @@ public class UI : MonoBehaviour
     Quit Confirm function will be invoked on dialog box confirmation and 
     it will Quit application
     */
-    public void QuitConfirm()
+    private void QuitConfirm()
     {
         Application.Quit();
     }
@@ -103,7 +103,7 @@ public class UI : MonoBehaviour
     Menu function will be invoked on clicking on Menu button and
     it will open Menu dialog box for confirmation
     */
-    public void Menu()
+    private void Menu()
     {
         GameMenuDialogBox.SetActive(true);
     }
@@ -111,7 +111,7 @@ public class UI : MonoBehaviour
     Menu Confirm function will be invoked on dialog box confirmation and 
     it will load the Menu screen
     */
-    public void MenuConfirm()
+    private void MenuConfirm()
     {
         SceneManager.LoadScene(0);
     }
@@ -120,7 +120,7 @@ public class UI : MonoBehaviour
     restart function will be called on clicking restart button
     it will restart the level
     */
-    public void Restart()
+    private void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -131,7 +131,7 @@ public class UI : MonoBehaviour
     nextLevelScene function will load the next Level Scene after successful 
     completion of current level
     */
-    public void nextLevelScene()
+    private void nextLevelScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         LevelCompleteUI.SetActive(false);
@@ -140,19 +140,26 @@ public class UI : MonoBehaviour
     /*
     pause function will enable on clicking escape pause Menu UI
     */
-    public void Paused()
+    private void Paused()
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
     }
 
+    /*
+    Game_Over() function set the Game over UI screen 
+    */
     public void Game_Over()
     {
         Time.timeScale = 0f;
         GameOverUI.SetActive(true);
     }
 
+    /*
+    LevelComplete function set the Level complete UI screen 
+    through waiter function
+    */
     public void LevelComplete()
     {
         StartCoroutine(waiter());
