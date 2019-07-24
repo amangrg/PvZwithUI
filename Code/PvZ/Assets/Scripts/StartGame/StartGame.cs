@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/*
+ *startgame is first always called at begining or when game is opened.
+it initializes start ing variables and let user navigate where to go in the game (level, pause, resume, quit)
+*/
 public class StartGame : MonoBehaviour
 {
     private int resumeLevel = 0;           //To resume the level 

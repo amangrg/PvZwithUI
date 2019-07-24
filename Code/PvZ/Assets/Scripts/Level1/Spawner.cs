@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private int hordezombies;
 
-    //public int hordeZombies;  //later if we want to spawn multiple hordes of zombies(not 1).
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         InvokeRepeating("spawnZombies", 5f, 5f);
     }
    
-    private void spawnSun()
+    private void spawnSun()                                                      //generates sun at some interval but at random positions on backyard         
     {
         float x = Random.Range(-6f, 4f);
         GameObject sun = Instantiate(
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
         );
     }
 
-    private void spawnZombies()
+    private void spawnZombies()                                                     //generates pattern in which zombies attack the backyard, in different rows in different amount and time                                                       
     {
         if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
         {
@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void spawnHorde()
+    private void spawnHorde()                                                          
     {
         while (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
         {

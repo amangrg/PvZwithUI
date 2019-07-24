@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Regular zombie class defines behavior and special effects of Zombie , Regularzombie is  a parent class of other types of zombies. 
+//it handles walking , collision impacts  and path checking
 public class RegularZombie : MonoBehaviour
 {
     protected float TimeInterval = 1f;
@@ -14,7 +16,7 @@ public class RegularZombie : MonoBehaviour
     protected float speed = 0f;
     protected int health = 0;
 
-    //audioclips need access from inspector hence kept public
+    //audioclips need  access from Audiolistener hence kept public 
     public AudioSource audiosource;
     public AudioClip collidesound;
     public AudioClip deathsound;
@@ -33,7 +35,7 @@ public class RegularZombie : MonoBehaviour
         {
             zombieWalk();
         }
-        if (frozen)
+        if (frozen)                                                                                 //freezes for freezetimer  if frozen pea has collided to zombie 
         {
             GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,1f,1f);
             speed = 0.1f;
@@ -50,7 +52,7 @@ public class RegularZombie : MonoBehaviour
             }
         }
 
-        if (checkPath())
+        if (checkPath())                                                                            //stops waliking if plant is in the next tile 
         {
             walk = false;
         }
@@ -58,11 +60,12 @@ public class RegularZombie : MonoBehaviour
             walk = true;
     }
 
+ 
     protected void updateHealth()
     {
         health--;
     }
-
+    //makes zombie walk with  constant speed unless game over condition occurs
     protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
@@ -71,7 +74,9 @@ public class RegularZombie : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().Game_Over();
         }
     }
-
+    // OnTriggerEnter2D is handelling collisions between pea projectiles and zombie, reduces health on every impact (by  pea collision)
+    // It initiates smoke animations, and moaning sound effects  when last pea is about to hit 
+    // it informs gamemanager class  if it has been 'killed'
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "peaBullet")
@@ -104,6 +109,7 @@ public class RegularZombie : MonoBehaviour
         }
     }
 
+    //checks and returns hit if a plant is in next as the zombie
     protected bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//class to Enable smoke animation when zombie dies
 public class smoke : MonoBehaviour
 {
     void Start()

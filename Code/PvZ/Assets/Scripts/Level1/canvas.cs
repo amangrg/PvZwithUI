@@ -36,7 +36,7 @@ public class canvas : MonoBehaviour
     /*
     Start function will be called before the first frame update
     Set the current level index in PlayerPrefs
-    At start updateSunCount will be set to 0 and ButtonCoolTime of each button will be set to false,
+    At start updateSunCount will be set to 0 and ButtonCoolTime of each button will be set to false,i.e plants are available to be placed 
     All the Dialog boxes and transition UI's are disabled
     */
     void Start()
