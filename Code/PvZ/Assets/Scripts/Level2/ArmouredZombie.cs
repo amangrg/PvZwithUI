@@ -7,8 +7,8 @@ public class ArmouredZombie : RegularZombie
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.15f;
-        health = 28;
+        speed = 0.18f;
+        health = 20;
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class ArmouredZombie : RegularZombie
             {
                 freezeTimer = 0f;
                 frozen = false;
-                speed = 0.15f;
+                speed = 0.18f;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);           //displays zombie in blue colour to show that it has been frozen
             }
         }
