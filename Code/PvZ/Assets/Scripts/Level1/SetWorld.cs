@@ -69,7 +69,7 @@ public class SetWorld : MonoBehaviour
 
                 if (j == 0)
                 {
-                    lanePositions[i] = new Vector2(tile.transform.position.x + 16f, tile.transform.position.y + 0.3f);
+                    lanePositions[i] = new Vector2(tile.transform.position.x + 15f, tile.transform.position.y + 0.3f);
                 }
             }
         }

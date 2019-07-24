@@ -57,7 +57,7 @@ public class Spawner_L3 : MonoBehaviour
         }
         if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies)
         {
-            gameManager.GetComponent<GameManager>().HugeWave(true);
+            gameManager.GetComponent<GameManager>().HugeWave();
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 spawnBoss();

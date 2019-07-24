@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Peashooter : Plant
 {
-    private float TimeInterval = 2f;
+    private float TimeInterval = 1f;
     [SerializeField]
     private GameObject Pea = null;
     private float timer = 0f;
@@ -46,7 +46,7 @@ public class Peashooter : Plant
     */
     private bool checkPath()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 18f, 1 << 8);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 7f - transform.position.x, 1 << 8);
         if (hit)
         {
             return hit;

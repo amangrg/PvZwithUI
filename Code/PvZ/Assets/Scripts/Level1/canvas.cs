@@ -39,8 +39,7 @@ public class canvas : MonoBehaviour
 
     [SerializeField]
     private Sprite[] panelImage;
-    private float WaveTimer = 0f;
-    private int currentLevel;
+    private int currentLevel = 0;
 
 
 
@@ -79,19 +78,6 @@ public class canvas : MonoBehaviour
     void Update()
     {
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
-        if (HugeWave)
-        {
-            HugeWaveUI.SetActive(HugeWave);
-            if (WaveTimer < 2f)
-            {
-                WaveTimer += Time.deltaTime;
-            }
-            else
-            {
-                HugeWave = false;
-                HugeWaveUI.SetActive(HugeWave);
-            }
-        }
     }
 
     /*
@@ -104,7 +90,7 @@ public class canvas : MonoBehaviour
     when it is equal then make that button interactive by checking if the suncount is available
     If the checkButtonCoolTime is false for a button then check if Button is active
     */
-    public void checkCooldownTimer()
+    private void checkCooldownTimer()
     {
         for (int i = 0; i < checkButtonCoolTime.Length; ++i)
         {
@@ -171,10 +157,10 @@ public class canvas : MonoBehaviour
     }
 
 
-    public void Huge_Wave(bool status)
+    public void Huge_Wave()
     {
-        HugeWave = status;
-
+        HugeWaveUI.SetActive(true);
+        waiter();   
     }
 
     public void setCoolTime(int id)
@@ -190,5 +176,11 @@ public class canvas : MonoBehaviour
     public Sprite getPanelChargeButtonImage(int id)
     {
         return panelChargeButtonImage[id];
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(2);
+        HugeWaveUI.SetActive(false);
     }
 }

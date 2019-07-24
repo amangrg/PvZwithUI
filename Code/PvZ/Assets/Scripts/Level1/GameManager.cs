@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
-    private int TotalSun = 0;
+    private int TotalSun = 500;
     [SerializeField]
     private int Zombie_Count = 10;
     [SerializeField]
@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
         UI.GetComponent<UI>().LevelComplete();
     }
 
-    public void HugeWave(bool wave)
+    public void HugeWave()
     {
-        canvas.GetComponent<canvas>().Huge_Wave(wave);
+        canvas.GetComponent<canvas>().Huge_Wave();
     }
 
 
