@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+//displays ccredit screen after credit button is pushed on startscreen
 public class Credits : MonoBehaviour
 {
     [SerializeField]

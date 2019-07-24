@@ -12,13 +12,12 @@ public class Plant : MonoBehaviour
     [SerializeField]
     private GameObject Smoke = null;
 
-    //plant eat music kept public access modifier for inspector mapping.
+    //plant eat music kept public so that  audiosource and audiolistener can access it .
     public AudioSource audiosource;
     public AudioClip eatsound;
     
     /*
-        Function: updateHealth() function decreases health of a plant, when a zombie eats that plant, and lastly destroys plant
-        parameters: No parameters are taken
+        Function: updateHealth() function decreases health of a plant when a zombie eats that plant, and lastly destroys plant
         Usage: The function is called in checkPath() function of RegularZombie class
     */
 

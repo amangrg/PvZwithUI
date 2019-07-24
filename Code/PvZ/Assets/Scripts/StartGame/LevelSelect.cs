@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//allows user to select level based on player's click and takes player to that level scene
 public class LevelSelect : MonoBehaviour
 {
     
@@ -23,6 +23,8 @@ public class LevelSelect : MonoBehaviour
 
 
     // Start is called before the first frame update
+   
+    //player can only interact with levels if they are not locked 
     void Start()
     {
         levelLocked = PlayerPrefs.GetInt("Current Level",3);

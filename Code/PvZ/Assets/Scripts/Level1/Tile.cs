@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
 
     }
 
-    //plant function will instantiate plant if there is no plant on that tile
+    //plant function will place  plant on that tile if there is no plant on that tile
     public bool plant(GameObject p)
 
     {   

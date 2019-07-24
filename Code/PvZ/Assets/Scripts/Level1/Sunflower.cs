@@ -5,6 +5,7 @@ using UnityEngine;
 
 /*This class gives health to a sunflower that is created, and spawns sun*/
 
+
 public class Sunflower : Plant
 {
     private float TimeInterval = 4f;
@@ -17,6 +18,7 @@ public class Sunflower : Plant
         health = 3;                         //assigns initial health to the sunflower
     }
 
+    //calls spawnsunfsun on sunflower at regular interval set by timer.
     void Update()
     {
         timer += Time.deltaTime;

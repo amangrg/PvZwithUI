@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* This class assigns peas the speed and makes it move (transform) and then destroy itself as it hits zombie*/
+/* This class assigns peas its  speed and makes it move (transform) 
+ pea destorys itself if it reaches backyard boundry */
 public class Pea : Projectile
 {
 
@@ -15,7 +16,7 @@ public class Pea : Projectile
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime, 0, 0);
+        transform.Translate(speed * Time.deltaTime, 0, 0);              //defines how pea will move when generated
         if(transform.position.x == 10f)
         {
             Destroy(gameObject);

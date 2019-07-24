@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ freeze pea extends properites of projectile, 
+ freezepea's speed is assigned in this function
+ pea is also destroyed if it goes beyonf the booundry
+ */
+
 public class FreezePea : Projectile
 {
     

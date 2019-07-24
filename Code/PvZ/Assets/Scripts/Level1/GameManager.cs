@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//game manager class is used for updating suncount and incrementing killcount if zombie is killed
+//it calls game over and win Ui screens
+//it has functions to update and acces kill count zombie count
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +20,7 @@ public class GameManager : MonoBehaviour
     private int Initial_Zombie_Count = 10;
     private int Kill_Count = 0;
 
+    //update sends totalsun count to canvas class.
     void Update()
     {
         canvas.GetComponent<canvas>().updateSunCount(TotalSun);
@@ -46,7 +50,6 @@ public class GameManager : MonoBehaviour
     {
         canvas.GetComponent<canvas>().Huge_Wave();
     }
-
 
     /*Function: killed() increments the Zombie kill count 
        Usage: Called in OnTriggerEnter2D() function of Regular Zombie class
