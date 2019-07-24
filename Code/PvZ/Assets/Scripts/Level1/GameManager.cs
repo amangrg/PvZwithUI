@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
-    private int TotalSun = 50;
+    private int TotalSun = 500;
     [SerializeField]
     private int Zombie_Count = 0;
     [SerializeField]
