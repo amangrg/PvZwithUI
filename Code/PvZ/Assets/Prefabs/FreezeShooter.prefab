@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6848453897760617885}
   - component: {fileID: 516578242167676112}
   - component: {fileID: 1784823628}
-  - component: {fileID: 1784823629}
   - component: {fileID: 1210648003295711222}
+  - component: {fileID: 3737821964380828047}
   m_Layer: 9
   m_Name: FreezeShooter
   m_TagString: Untagged
@@ -128,23 +128,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1784823629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848453897760617886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b5743dd4285b44da022fcccf7608ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
-  audiosource: {fileID: 1210648003295711222}
-  eatsound: {fileID: 8300000, guid: ccfa74c22c141fd49bc1d992e755b7eb, type: 3}
-  FreezePea: {fileID: 3844495368432377855, guid: 88ee9e46f1bc69043b4a2299cfb35dec,
-    type: 3}
 --- !u!82 &1210648003295711222
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241,3 +224,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3737821964380828047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848453897760617886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b5743dd4285b44da022fcccf7608ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Smoke: {fileID: 184341654770116603, guid: 95799941af79dd240a959fd201e19a9c, type: 3}
+  audiosource: {fileID: 0}
+  eatsound: {fileID: 8300000, guid: ccfa74c22c141fd49bc1d992e755b7eb, type: 3}
+  FreezePea: {fileID: 3844495368432377855, guid: 88ee9e46f1bc69043b4a2299cfb35dec,
+    type: 3}

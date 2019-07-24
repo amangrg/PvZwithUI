@@ -14,7 +14,7 @@ public class FreezePea : Projectile
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10f;
+        speed = 5f;
     }
 
     // Update is called once per frame
