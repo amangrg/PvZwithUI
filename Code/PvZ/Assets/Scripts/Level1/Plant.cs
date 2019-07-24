@@ -27,8 +27,9 @@ public class Plant : MonoBehaviour
         audiosource.PlayOneShot(eatsound);
         if(health == 0)
         {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.2f);
+            hitColliders[0].GetComponent<Tile>().Setplant(false);
             Instantiate(Smoke, transform.position, Quaternion.identity);
-            GameObject.Find("Tile").GetComponent<Tile>().Setplant(false);
             Destroy(gameObject);
             if(!Smoke)
             {
