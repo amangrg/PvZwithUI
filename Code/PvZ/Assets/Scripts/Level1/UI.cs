@@ -176,7 +176,7 @@ public class UI : MonoBehaviour
     */
     private void nextLevelScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % 5);
         LevelCompleteUI.SetActive(false);
     }
 
