@@ -44,7 +44,12 @@ public class SetWorld : MonoBehaviour
         GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f, 3f),
                Quaternion.identity, transform);
 
-        game_over_line = tile.transform.position.x - 0.7f;
+        if (!tile)
+        {
+            Debug.Log("Tile Instantiate failed");
+        }
+        else
+            game_over_line = tile.transform.position.x - 0.7f;
     }
 
     public Vector2 getLane()
@@ -66,10 +71,16 @@ public class SetWorld : MonoBehaviour
             {
                 GameObject tile = Instantiate(lawn_tile, new Vector2(-6.22f + 1.58f * (float)j, 3f - 1.68f * (float)i),
                 Quaternion.identity, transform);
-
-                if (j == 0)
+                if (!tile)
                 {
-                    lanePositions[i] = new Vector2(tile.transform.position.x + 15f, tile.transform.position.y + 0.3f);
+                    Debug.Log("Tile Instantiate failed");
+                }
+                else
+                {
+                    if (j == 0)
+                    {
+                        lanePositions[i] = new Vector2(tile.transform.position.x + 15f, tile.transform.position.y + 0.3f);
+                    }
                 }
             }
         }

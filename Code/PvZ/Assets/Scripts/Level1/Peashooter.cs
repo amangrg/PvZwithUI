@@ -37,6 +37,10 @@ public class Peashooter : Plant
     private void shootPea()
     {
         Instantiate(Pea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
+        if(!Pea)
+        {
+            Debug.Log("Pea instantiate failed");
+        }
     }
 
 

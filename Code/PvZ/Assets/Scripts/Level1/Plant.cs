@@ -29,6 +29,10 @@ public class Plant : MonoBehaviour
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            if(!Smoke)
+            {
+                Debug.Log("Smoke Instantiate failed");
+            }
         }
     }
 }
