@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     private int levelzombies;
     [SerializeField]
     private int hordezombies;
+    private int flag = 0;
 
     
 
@@ -62,33 +63,31 @@ public class Spawner : MonoBehaviour
                 gameManager.GetComponent<GameManager>().updateZombieCount();
 
         }
-        if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies && gameManager.GetComponent<GameManager>().getZombieCount() > 0)
+        if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies && flag == 0)
         {
             gameManager.GetComponent<GameManager>().HugeWave();
-            spawnHorde();
+            InvokeRepeating("spawnHorde", 3f, 6f);
+            flag = 1;
         }
     }
 
     private void spawnHorde()                                                          
     {
-        while (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
         {
-            
             int spawn = Random.Range(0, (Zombies.Length - 1));
             GameObject zombie = Instantiate(
-            Zombies[spawn],
-            setWorld.GetComponent<SetWorld>().getLane(),
-            Quaternion.identity,
-            transform
-            );
+                Zombies[spawn],
+                setWorld.GetComponent<SetWorld>().getLane(),
+                Quaternion.identity,
+                transform
+                );
             if (!Zombies[spawn])
             {
                 Debug.Log("Tile Instantiate failed");
             }
             else
                 gameManager.GetComponent<GameManager>().updateZombieCount();
-            
         }
-
     }
 }

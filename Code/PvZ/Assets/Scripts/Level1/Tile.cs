@@ -40,4 +40,9 @@ public class Tile : MonoBehaviour
         }
         return false;
     }
+
+    public void Setplant (bool value)
+    {
+        has_plant = value;
+    }
 }
