@@ -117,12 +117,19 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
+            if (!Smoke)
+            {
+                Debug.Log("Smoke Instantiate failed");
+            }
+            else
+            {
 
-            GameObject.Find("GameManager").GetComponent<GameManager>().killed();
-            if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
-                GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
+                GameObject.Find("GameManager").GetComponent<GameManager>().killed();
+                if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
+                    GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 

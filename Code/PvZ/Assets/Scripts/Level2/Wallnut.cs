@@ -8,16 +8,17 @@ using UnityEngine;
 public class Wallnut : Plant
 {
     // Start is called before the first frame update
-    public Sprite halfWallnut;
+    [SerializeField]
+    private Sprite halfWallnut;
     void Start()
     {
-        health = 10;
+        health = 50;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(health == 5)
+        if(health == 25)
         {
             this.GetComponent<SpriteRenderer>().sprite = halfWallnut;
         }

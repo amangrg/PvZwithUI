@@ -35,6 +35,10 @@ public class Spawner : MonoBehaviour
         Quaternion.identity,
         transform
         );
+        if (!sun)
+        {
+            Debug.Log("Sun Instantiate failed");
+        }
     }
 
     private void spawnZombies()                                                     //generates pattern in which zombies attack the backyard, in different rows in different amount and time                                                       
@@ -50,8 +54,12 @@ public class Spawner : MonoBehaviour
             Quaternion.identity,
             transform
             );
-
-            gameManager.GetComponent<GameManager>().updateZombieCount();
+            if (!Zombies[spawn])
+            {
+                Debug.Log("Tile Instantiate failed");
+            }
+            else
+                gameManager.GetComponent<GameManager>().updateZombieCount();
 
         }
         if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies && gameManager.GetComponent<GameManager>().getZombieCount() > 0)
@@ -73,8 +81,12 @@ public class Spawner : MonoBehaviour
             Quaternion.identity,
             transform
             );
-          
-            gameManager.GetComponent<GameManager>().updateZombieCount();
+            if (!Zombies[spawn])
+            {
+                Debug.Log("Tile Instantiate failed");
+            }
+            else
+                gameManager.GetComponent<GameManager>().updateZombieCount();
             
         }
 
