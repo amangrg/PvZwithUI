@@ -39,10 +39,10 @@ public class Spawner : MonoBehaviour
 
     private void spawnZombies()                                                     //generates pattern in which zombies attack the backyard, in different rows in different amount and time                                                       
     {
-        if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
-        {
-            Debug.Log(gameManager.GetComponent<GameManager>().getZombieCount());
 
+        if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
+     
+        {
             int spawn = Random.Range(0, (Zombies.Length));
             GameObject zombie = Instantiate(
             Zombies[spawn],
@@ -56,8 +56,7 @@ public class Spawner : MonoBehaviour
         }
         if (gameManager.GetComponent<GameManager>().getKillCount() == levelzombies)
         {
-            Debug.Log("level zombies");
-            gameManager.GetComponent<GameManager>().HugeWave(true);
+            gameManager.GetComponent<GameManager>().HugeWave();
             spawnHorde();
         }
     }

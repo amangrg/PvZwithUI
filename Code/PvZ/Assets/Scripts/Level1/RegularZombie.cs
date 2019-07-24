@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Regular zombie class defines behavior and special effects of Zombie , Regularzombie is  a parent class of other types of zombies. 
-//it handles walking , collision impacts  and path checking
+
+/*
+ Regular zombie class defines behavior and special effects of Zombie , Regularzombie is  a parent class of other types of zombies. 
+    it handles walking , collision impacts  and path checking
+*/
+
 public class RegularZombie : MonoBehaviour
 {
     protected float TimeInterval = 1f;
@@ -37,8 +41,8 @@ public class RegularZombie : MonoBehaviour
         }
         if (frozen)                                                                                 //freezes for freezetimer  if frozen pea has collided to zombie 
         {
-            GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,1f,1f);
-            speed = 0.1f;
+            GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1f);
+            speed = 0.1f;                        // Sets less speed for zombie, if it is hit by Frozen Pea
             if (freezeTimer < 5f)
             {
                 freezeTimer += Time.deltaTime;
@@ -47,7 +51,7 @@ public class RegularZombie : MonoBehaviour
             {
                 freezeTimer = 0f;
                 frozen = false;
-                speed = 0.5f;
+                speed = 0.3f;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
         }
@@ -60,12 +64,22 @@ public class RegularZombie : MonoBehaviour
             walk = true;
     }
 
- 
+    /*
+       Function: updateHealth() function decrements health of Zombie.
+       Parameters: It takes no parameters.
+       Usage: Called on collision with Pea.
+   */
     protected void updateHealth()
     {
         health--;
     }
-    //makes zombie walk with  constant speed unless game over condition occurs
+
+    /*
+       Function: zombieWalk() gives translation speed to Zombies. It also checks if zombie has crossed the game over line and calls Game Over Function.
+       Parameters: It takes no parameters.
+       Usage: Called on collision with Pea in OnTriggerEnter2D() of Zombie.
+   */
+
     protected void zombieWalk()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
@@ -74,9 +88,11 @@ public class RegularZombie : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().Game_Over();
         }
     }
-    // OnTriggerEnter2D is handelling collisions between pea projectiles and zombie, reduces health on every impact (by  pea collision)
-    // It initiates smoke animations, and moaning sound effects  when last pea is about to hit 
-    // it informs gamemanager class  if it has been 'killed'
+    /*
+       Function: OnTriggerEnter2D() detects type of Pea, updates Health of Zombie according to pea type,and destroys Zombie
+       Parameters: Takes inbuilt Collider object
+       Usage: It is MonoBehaviour function called directly by Unity on collisions.
+   */
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "peaBullet")
@@ -101,6 +117,7 @@ public class RegularZombie : MonoBehaviour
         if (health == 0)
         {
             Instantiate(Smoke, transform.position, Quaternion.identity);
+
             GameObject.Find("GameManager").GetComponent<GameManager>().killed();
             if (GameObject.Find("GameManager").GetComponent<GameManager>().getKillCount() == GameObject.Find("GameManager").GetComponent<GameManager>().getInitialCount())
                 GameObject.Find("GameManager").GetComponent<GameManager>().Level_Complete();
@@ -109,13 +126,15 @@ public class RegularZombie : MonoBehaviour
         }
     }
 
-    //checks and returns hit if a plant is in next as the zombie
+    /*
+      Function: checkPath()- Checks if Zombie & plant are in vicinty, and decrements plant health 
+      Usage: Called in Update() of Zombies
+    */
     protected bool checkPath()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.5f, 1 << 9);
         if (hit)
         {
-            //Debug.Log("In checkpath");
             timer += Time.deltaTime;
             if (timer >= TimeInterval)
             {

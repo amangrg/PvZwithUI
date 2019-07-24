@@ -7,17 +7,25 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
 
-    public bool GameOver = false;
-    public bool Level_Complete = false;
-    public static bool GamePaused = false;
-    public bool GameQuitDialog = false;
-    public bool GameMenuDialog = false;
-    public Slider slider;
-    public GameObject PauseMenu = null;
-    public GameObject GameOverUI = null;
-    public GameObject LevelCompleteUI = null;
-    public GameObject GameQuitDialogBox = null;
-    public GameObject GameMenuDialogBox = null;
+    //private bool GameOver = false;
+    //private bool Level_Complete = false;
+    //private bool GameQuitDialog = false;
+    //private bool GameMenuDialog = false;
+    [SerializeField]
+    private Slider slider;
+
+    [SerializeField]
+    private GameObject PauseMenu = null;
+    [SerializeField]
+    private GameObject GameOverUI = null;
+    [SerializeField]
+    private GameObject LevelCompleteUI = null;
+    [SerializeField]
+    private GameObject GameQuitDialogBox = null;
+    [SerializeField]
+    private GameObject GameMenuDialogBox = null;
+
+    private static bool GamePaused = false;
     //Start is called before the first frame update
     void Start()
     {
@@ -42,23 +50,6 @@ public class UI : MonoBehaviour
                 Paused();
             }
         }
-        if (GameOver)
-        {
-            Time.timeScale = 0f;
-            GameOverUI.SetActive(true);
-        }
-        if (Level_Complete)
-        {
-            StartCoroutine(waiter());
-        }
-        if (GameQuitDialog)
-        {
-            GameQuitDialogBox.SetActive(true);
-        }
-        if (GameMenuDialog)
-        {
-            GameMenuDialogBox.SetActive(true);
-        }
     }
 
     /*
@@ -71,20 +62,19 @@ public class UI : MonoBehaviour
         LevelCompleteUI.SetActive(true);
     }
 
-    public void fillbar(float value)
+    public void fillbar(float val)
     {
-        slider.value = value;
+        slider.value = val;
+       
     }
     /*
     resume function will first disable the dialog boxes 
     and then disable the pause menu UI
     */
 
-    public void Resume()
+    private void Resume()
     {
-        GameQuitDialog = false;
-        GameQuitDialogBox.SetActive(false);
-        GameMenuDialog = false;
+        GameQuitDialogBox.SetActive(false);    
         GameMenuDialogBox.SetActive(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -96,16 +86,16 @@ public class UI : MonoBehaviour
     Quit function will be invoked on clicking on Quit button and
     it will open Quit dialog box for confirmation
     */
-    public void Quit()
+    private void Quit()
     {
-        GameQuitDialog = true;
+        GameQuitDialogBox.SetActive(true);
     }
 
     /*
     Quit Confirm function will be invoked on dialog box confirmation and 
     it will Quit application
     */
-    public void QuitConfirm()
+    private void QuitConfirm()
     {
         Application.Quit();
     }
@@ -113,15 +103,15 @@ public class UI : MonoBehaviour
     Menu function will be invoked on clicking on Menu button and
     it will open Menu dialog box for confirmation
     */
-    public void Menu()
+    private void Menu()
     {
-        GameMenuDialog = true;
+        GameMenuDialogBox.SetActive(true);
     }
     /*
     Menu Confirm function will be invoked on dialog box confirmation and 
     it will load the Menu screen
     */
-    public void MenuConfirm()
+    private void MenuConfirm()
     {
         SceneManager.LoadScene(0);
     }
@@ -130,7 +120,7 @@ public class UI : MonoBehaviour
     restart function will be called on clicking restart button
     it will restart the level
     */
-    public void Restart()
+    private void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -141,21 +131,38 @@ public class UI : MonoBehaviour
     nextLevelScene function will load the next Level Scene after successful 
     completion of current level
     */
-    public void nextLevelScene()
+    private void nextLevelScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Level_Complete = false;
+        LevelCompleteUI.SetActive(false);
     }
 
     /*
     pause function will enable on clicking escape pause Menu UI
     */
-    public void Paused()
+    private void Paused()
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
     }
 
+    /*
+    Game_Over() function set the Game over UI screen 
+    */
+    public void Game_Over()
+    {
+        Time.timeScale = 0f;
+        GameOverUI.SetActive(true);
+    }
+
+    /*
+    LevelComplete function set the Level complete UI screen 
+    through waiter function
+    */
+    public void LevelComplete()
+    {
+        StartCoroutine(waiter());
+    }
 
 }

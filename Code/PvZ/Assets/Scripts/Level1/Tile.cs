@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
 
-    public bool has_plant;
+    private bool has_plant;
 
     // modifier kept public on purpose
     public AudioSource audiosrc;
@@ -28,7 +28,7 @@ public class Tile : MonoBehaviour
     {
         if (!has_plant)
         {
-            GameObject plant = (GameObject)Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.2f, 0), Quaternion.identity);
+            Instantiate(p, new Vector3(transform.position.x, transform.position.y + 0.2f, 0), Quaternion.identity);
             has_plant = true;
             audiosrc.PlayOneShot(placed);
             return true;

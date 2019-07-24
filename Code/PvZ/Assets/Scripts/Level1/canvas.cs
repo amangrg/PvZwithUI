@@ -11,20 +11,35 @@ Canvas class displays the panel and its elements, transition UIs, dialog boxes
 public class canvas : MonoBehaviour
 {
     [SerializeField]
-    public Text SuncountT;
-    public GameObject userEvent;
-    public int[] plantCosts;
+    private Text SuncountT;
+
+    [SerializeField]
+    private GameObject userEvent;
+
+    [SerializeField]
+    private int[] plantCosts;
 
     [HideInInspector]
-    public bool HugeWave = false;
-    public GameObject HugeWaveUI = null;
-    public bool[] checkButtonCoolTime;
-    public float[] timeToWait;
-    public float[] currentWaitTime;
-    public Sprite[] panelChargeButtonImage;
-    public Sprite[] panelImage;
-    private float WaveTimer = 0f;
-    private int currentLevel;
+    private bool HugeWave = false;
+
+    [SerializeField]
+    private GameObject HugeWaveUI;
+
+    [SerializeField]
+    private bool[] checkButtonCoolTime;
+
+    [SerializeField]
+    private float[] timeToWait;
+
+    [SerializeField]
+    private float[] currentWaitTime;
+
+    [SerializeField]
+    private Sprite[] panelChargeButtonImage;
+
+    [SerializeField]
+    private Sprite[] panelImage;
+    private int currentLevel = 0;
 
 
 
@@ -41,11 +56,13 @@ public class canvas : MonoBehaviour
     */
     void Start()
     {
+       
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("Current Level", currentLevel);
         PlayerPrefs.Save();
-
+       
         updateSunCount(0);
+     
         for (int i = 0; i < plantCosts.Length; ++i)
         {
             checkButtonCoolTime[i] = false;
@@ -61,20 +78,6 @@ public class canvas : MonoBehaviour
     void Update()
     {
         checkCooldownTimer(); //checkCoolDownTimer for each button in panel at every frame
-        if (HugeWave)
-        {
-            Debug.Log("huge wave");
-            HugeWaveUI.SetActive(HugeWave);
-            if (WaveTimer < 2f)
-            {
-                WaveTimer += Time.deltaTime;
-            }
-            else
-            {
-                HugeWave = false;
-                HugeWaveUI.SetActive(HugeWave);
-            }
-        }
     }
 
     /*
@@ -87,7 +90,7 @@ public class canvas : MonoBehaviour
     when it is equal then make that button interactive by checking if the suncount is available
     If the checkButtonCoolTime is false for a button then check if Button is active
     */
-    public void checkCooldownTimer()
+    private void checkCooldownTimer()
     {
         for (int i = 0; i < checkButtonCoolTime.Length; ++i)
         {
@@ -96,7 +99,7 @@ public class canvas : MonoBehaviour
                 if ((float)Math.Ceiling(currentWaitTime[i]) != timeToWait[i])
                 {
                     currentWaitTime[i] += Time.deltaTime;
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                    userEvent.GetComponent<UserEvent>().setButton(i,false);
                 }
                 else
                 {
@@ -125,24 +128,23 @@ public class canvas : MonoBehaviour
             {
                 if ((plantCosts[i] <= System.Convert.ToInt32(GetComponent<canvas>().SuncountT.text)))
                 {
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = true;
+                    userEvent.GetComponent<UserEvent>().setButton(i,true);
                 }
                 else
                 {
-                    userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                    userEvent.GetComponent<UserEvent>().setButton(i,false);
                 }
                 checkButtonCoolTime[i] = false;
-                Button btn = userEvent.GetComponent<UserEvent>().button[i];
+                Button btn = userEvent.GetComponent<UserEvent>().getButton(i);
                 Sprite img = panelImage[i];
                 btn.GetComponent<Image>().sprite = img;
             }
             else
             {
-                userEvent.GetComponent<UserEvent>().button[i].interactable = false;
+                userEvent.GetComponent<UserEvent>().setButton(i,false);
             }
         }
     }
-
 
     /*
     updateSunCount function takes SunCost as argument
@@ -152,5 +154,33 @@ public class canvas : MonoBehaviour
     public void updateSunCount(int SunCost)
     {
         SuncountT.text = SunCost.ToString();
+    }
+
+
+    public void Huge_Wave()
+    {
+        HugeWaveUI.SetActive(true);
+        waiter();   
+    }
+
+    public void setCoolTime(int id)
+    {
+        checkButtonCoolTime[id] = true;
+    }
+
+    public int getPlantCost(int id)
+    {
+        return plantCosts[id];
+    }
+
+    public Sprite getPanelChargeButtonImage(int id)
+    {
+        return panelChargeButtonImage[id];
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(2);
+        HugeWaveUI.SetActive(false);
     }
 }

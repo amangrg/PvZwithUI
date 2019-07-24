@@ -360,7 +360,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1195881279}
-  UI: {fileID: 0}
+  UI: {fileID: 1195881279}
   userEvent: {fileID: 1749176547}
 --- !u!1 &364170006
 GameObject:
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: nextLevelScene
         m_Mode: 1
         m_Arguments:
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -3044,7 +3044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -3476,6 +3476,7 @@ GameObject:
   - component: {fileID: 1195881281}
   - component: {fileID: 1195881280}
   - component: {fileID: 1195881284}
+  - component: {fileID: 1195881285}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3585,17 +3586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SuncountT: {fileID: 1104467360}
   userEvent: {fileID: 1749176547}
-  plantCosts: 32000000640000009600000032000000
-  GameOver: 0
-  Level_Complete: 0
-  GameQuitDialog: 0
-  GameMenuDialog: 0
-  HugeWave: 0
-  PauseMenu: {fileID: 467539894}
-  GameOverUI: {fileID: 696043083}
-  LevelCompleteUI: {fileID: 1380439938}
-  GameQuitDialogBox: {fileID: 1972230629}
-  GameMenuDialogBox: {fileID: 1009112018}
+  plantCosts: 3200000064000000af00000032000000
   HugeWaveUI: {fileID: 1536507811}
   checkButtonCoolTime: 00000000
   timeToWait:
@@ -3611,14 +3602,31 @@ MonoBehaviour:
   panelChargeButtonImage:
   - {fileID: 21300000, guid: 736ca6d61d2fa3f47b988d59808d8b50, type: 3}
   - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
-  - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
-  - {fileID: 21300000, guid: e0775763cfbc02246b9be1b435bea7c1, type: 3}
+  - {fileID: 21300000, guid: fd2aedc36d46fb14ab44aef4bb4607c0, type: 3}
+  - {fileID: 21300000, guid: a975e1f65e69f4c4aa7f3b0918661004, type: 3}
   panelImage:
   - {fileID: 21300000, guid: 02bf95415191c3a47b26b120de5a9378, type: 3}
   - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
-  - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
-  - {fileID: 21300000, guid: 638af963d39ab1e499ae9bd415d28ba3, type: 3}
-  progressBar: {fileID: 808803694}
+  - {fileID: 21300000, guid: 08e22b1ba3ff76c4380ae09e7012fba9, type: 3}
+  - {fileID: 21300000, guid: b9e766c5a69307348afecb8ea5444ffd, type: 3}
+--- !u!114 &1195881285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195881279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db2bda6742c50044b1237dbec783b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 808803694}
+  PauseMenu: {fileID: 467539894}
+  GameOverUI: {fileID: 696043083}
+  LevelCompleteUI: {fileID: 1380439938}
+  GameQuitDialogBox: {fileID: 1972230629}
+  GameMenuDialogBox: {fileID: 1009112018}
 --- !u!1 &1231519874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +3807,8 @@ MonoBehaviour:
   - {fileID: 6229221339460184340, guid: c467a921a316fa446aa8a154c8bfdaab, type: 3}
   setWorld: {fileID: 1036435280}
   gameManager: {fileID: 331634691}
+  levelzombies: 6
+  hordezombies: 4
 --- !u!4 &1273996609
 Transform:
   m_ObjectHideFlags: 0
@@ -4270,7 +4280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -4402,7 +4412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -4748,7 +4758,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: QuitConfirm
         m_Mode: 1
         m_Arguments:
@@ -4880,7 +4890,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: MenuConfirm
         m_Mode: 1
         m_Arguments:
@@ -5342,7 +5352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -5672,7 +5682,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1195881284}
+      - m_Target: {fileID: 1195881285}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:

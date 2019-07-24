@@ -8,15 +8,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public GameObject canvas = null;
+    private GameObject canvas = null;
     [SerializeField]
-    public GameObject UI = null;
+    private GameObject UI = null;
     [SerializeField]
     private GameObject userEvent = null;
     private int TotalSun = 500;
+    [SerializeField]
     private int Zombie_Count = 10;
+    [SerializeField]
     private int Initial_Zombie_Count = 10;
-    //[HideInInspector]
     private int Kill_Count = 0;
 
     //update sends totalsun count to canvas class.
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         TotalSun += Suncount;
         canvas.GetComponent<canvas>().updateSunCount(TotalSun);
-        for (int i = 0; i < userEvent.GetComponent<UserEvent>().button.Length; ++i)
+        for (int i = 0; i < userEvent.GetComponent<UserEvent>().getLength(); ++i)
         {
             canvas.GetComponent<canvas>().checkButtonActive();
         }
@@ -37,41 +38,46 @@ public class GameManager : MonoBehaviour
 
     public void Game_Over()
     {
-        UI.GetComponent<UI>().GameOver = true;
+        UI.GetComponent<UI>().Game_Over();
     }
 
     public void Level_Complete()
     {
-        UI.GetComponent<UI>().Level_Complete = true;
+        UI.GetComponent<UI>().LevelComplete();
     }
 
-    public void HugeWave(bool wave)
+    public void HugeWave()
     {
-        Debug.Log("wave");
-        canvas.GetComponent<canvas>().HugeWave = wave;
+        canvas.GetComponent<canvas>().Huge_Wave();
     }
 
-    /* killed() increases killcount and updates  the fillbar by calling fillbar function in UI*/
+    /*Function: killed() increments the Zombie kill count 
+       Usage: Called in OnTriggerEnter2D() function of Regular Zombie class
+      */
     public void killed()
     {
         Kill_Count++;
-        UI.GetComponent<UI>().fillbar((float)Kill_Count/Initial_Zombie_Count);
+        float temp = (float)Kill_Count / Initial_Zombie_Count;
+        UI.GetComponent<UI>().fillbar(temp);
     }
 
     public int getInitialCount()
     {
         return Initial_Zombie_Count;
     }
-    
+
     public int getKillCount()
     {
-        Debug.Log(Kill_Count);
         return Kill_Count;
     }
     public int getZombieCount()
     {
         return Zombie_Count;
     }
+
+    /*Function: updateZombieCount() decrements the total Zombie count on spawning a zombie
+       Usage: Called in Spawner class
+      */
     public void updateZombieCount()
     {
         Zombie_Count--;
