@@ -6,8 +6,9 @@ using UnityEngine;
 public class FreezePlant : Plant
 {
     private float TimeInterval = 2f;
-    public GameObject FreezePea;
-    private float timer;
+    [SerializeField]
+    private GameObject FreezePea;
+    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,10 @@ public class FreezePlant : Plant
     //shootpea generates projectile FreezPea from freezeplant's position
     private void shootPea()
     {
-        GameObject pea = (GameObject)Instantiate(FreezePea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
+        if (FreezePea)
+            Instantiate(FreezePea, new Vector3(transform.position.x + 0.7f, transform.position.y + 0.46f, 0), Quaternion.identity);
+        else
+            Debug.Log("Error in Freeze Pea");
     }
     //checkpath function checks if zombie is there in straight line from the plant using Raycast function provided by unity
     private bool checkPath()
@@ -43,6 +47,5 @@ public class FreezePlant : Plant
         }
         else
             return false;
-
     }
 }
