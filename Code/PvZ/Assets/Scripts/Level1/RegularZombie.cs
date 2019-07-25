@@ -41,7 +41,7 @@ public class RegularZombie : MonoBehaviour
         }
         if (frozen)                                                                                 //freezes for freezetimer  if frozen pea has collided to zombie 
         {
-            GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1f);
+            GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 1f, 1f);
             speed = 0.1f;                        // Sets less speed for zombie, if it is hit by Frozen Pea
             if (freezeTimer < 5f)
             {

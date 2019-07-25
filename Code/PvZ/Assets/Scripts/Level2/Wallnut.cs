@@ -12,13 +12,13 @@ public class Wallnut : Plant
     private Sprite halfWallnut;
     void Start()
     {
-        health = 50;
+        health = 35;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(health == 25)
+        if(health == 17)
         {
             this.GetComponent<SpriteRenderer>().sprite = halfWallnut;
         }
