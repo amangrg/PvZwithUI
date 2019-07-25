@@ -30,6 +30,7 @@ public class FreezePlant : Plant
 
     }
     //shootpea generates projectile FreezPea from freezeplant's position
+  
     private void shootPea()
     {
         if (FreezePea)

@@ -66,8 +66,6 @@ public class RegularZombie : MonoBehaviour
 
     /*
        Function: updateHealth() function decrements health of Zombie.
-       Parameters: It takes no parameters.
-       Usage: Called on collision with Pea.
    */
     protected void updateHealth()
     {
@@ -76,8 +74,7 @@ public class RegularZombie : MonoBehaviour
 
     /*
        Function: zombieWalk() gives translation speed to Zombies. It also checks if zombie has crossed the game over line and calls Game Over Function.
-       Parameters: It takes no parameters.
-       Usage: Called on collision with Pea in OnTriggerEnter2D() of Zombie.
+    
    */
 
     protected void zombieWalk()

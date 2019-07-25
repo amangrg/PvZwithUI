@@ -35,7 +35,7 @@ public class ArmouredZombie : RegularZombie
             }
         }
 
-        if (checkPath())                                                                    //stops waling if any plant is in the next tile
+        if (checkPath())                                                                    // stops waliking if any plant is in the next tile  checkpath() exists in plant classes 
         {
             walk = false;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/*This class gives health to a sunflower that is created, and spawns sun*/
+/*This class gives health to a sunflower that is created, and spawns sun on the sunflower */
 
 
 public class Sunflower : Plant

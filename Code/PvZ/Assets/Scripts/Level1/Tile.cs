@@ -40,7 +40,7 @@ public class Tile : MonoBehaviour
         }
         return false;
     }
-
+    //set plant used to check if the tile is taken by another plant
     public void Setplant (bool value)
     {
         has_plant = value;

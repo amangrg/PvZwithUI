@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/* The Peashooter class inherits Plant class and performs pea shooting task when it encounters zombie in its path*/
+/*
+* The Peashooter class inherits Plant class and performs pea shooting task when it encounters zombie in its path
+*/
 
 public class Peashooter : Plant
 {

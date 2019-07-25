@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void spawnZombies()                                                     //generates pattern in which zombies attack the backyard, in different rows in different amount and time                                                       
+    private void spawnZombies()                                                     //generates pattern in which zombies attack the backyard, in different rows at different instance of time                  
     {
 
         if (gameManager.GetComponent<GameManager>().getZombieCount() > hordezombies)
@@ -71,6 +71,8 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    //generates the 'Hugewave'of zombies;spwanhorde is called by spawnzombies when when a threshhold of zombies is killed
+    // multiple created in small duration 
     private void spawnHorde()                                                          
     {
         if (gameManager.GetComponent<GameManager>().getZombieCount() > 0)
