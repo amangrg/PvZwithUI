@@ -63,11 +63,9 @@ public class StartGame : MonoBehaviour
             System.IO.Directory.CreateDirectory(path);
             StreamWriter writer = new StreamWriter(path + "names.txt", true);
             writer.Close();
-            PopulateDropdown();
-        } else
-        {
-            PopulateDropdown();
         }
+        PopulateDropdown();
+
         resume.onClick.AddListener(delegate { Resume(); });
         play.onClick.AddListener(delegate { Playbutton(); });
         quit.onClick.AddListener(delegate { QuitButton(); });
@@ -82,22 +80,27 @@ public class StartGame : MonoBehaviour
     }
     void Update()
     {
-        if(flag == 1)
-            selection = dropdown.value;
+            
         if (Name.isFocused)
             playername = Name.text;
-
-        if(selection >= 0)
+        if(flag == 0)
         {
+            selection = dropdown.value;
             newplayer = dropdown.options[selection].text;
             Debug.Log(selection);
         }
     }
     private void PopulateDropdown()
     {
-        flag = 1;
-        StreamReader reader = new StreamReader(path + "names.txt", true);
+        dropdown.ClearOptions();
         string []arr = File.ReadAllLines(path + "names.txt");
+        if(arr.Length == 0)
+        {
+            flag = 1;
+        } else
+        {
+            flag = 0;
+        }
         List<string> list = new List<string>(arr);
         dropdown.AddOptions(list);
     }
@@ -111,11 +114,10 @@ public class StartGame : MonoBehaviour
         {
             Debug.Log("User Already Exists");
         }
-
-        dropdown.options.Add(new Dropdown.OptionData() { text = playername });
         StreamWriter writer = new StreamWriter(path + "names.txt", true);
         writer.WriteLine(name);
         writer.Close();
+        PopulateDropdown();
     }
     //Resume the last played level
     private void Resume()
